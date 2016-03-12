@@ -1,0 +1,22 @@
+{
+  "name": "tisket-tasket",
+  "version": "1.0.0",
+  "description": "An app for Basket Weavers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schmitz1193/tisket-tasket.git"
+  },
+  "author": "Stephanie Krause <schmitz1193@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schmitz1193/tisket-tasket/issues"
+  },
+  "homepage": "https://github.com/schmitz1193/tisket-tasket#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
