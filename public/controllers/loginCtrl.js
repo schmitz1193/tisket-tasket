@@ -1,9 +1,9 @@
 'use strict'
-app.controller("loginCtrl", [
-  $scope,
+app.controller("LoginCtrl", [
+  // $scope,
 
-  function($scope){
-    $scope.test = 'Did I make it?';
+  function(){
+    // $scope.test = 'Did I make it?';
     console.log("coming from loginctrl");
 
   }

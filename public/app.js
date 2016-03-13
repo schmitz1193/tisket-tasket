@@ -9,7 +9,7 @@ function($stateProvider, $urlRouterProvider) {
     .state('login', {
       url: '/login',
       templateUrl: '/partials/login.html',
-      controller: '/controllers/loginCtrl'
+      controller: 'LoginCtrl'
     });
     // .state('posts', {
     //   url: '/posts/{id}',
