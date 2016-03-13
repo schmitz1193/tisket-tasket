@@ -4,7 +4,10 @@
   "description": "An app for Basket Weavers",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "bower": "bower"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/schmitz1193/tisket-tasket#readme",
   "dependencies": {
+    "bower": "^1.7.7",
     "express": "^4.13.4"
   }
 }
