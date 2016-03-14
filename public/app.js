@@ -10,12 +10,17 @@ function($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: '/partials/login.html',
       controller: 'LoginCtrl'
+    })
+    .state('shop', {
+      url: '/shop',
+      templateUrl: '/partials/shop.html',
+      controller: 'ShopCtrl'
+    })
+    .state('admin', {
+      url: '/admin',
+      templateUrl: '/partials/admin.html',
+      controller: 'AdminCtrl'
     });
-    // .state('posts', {
-    //   url: '/posts/{id}',
-    //   templateUrl: '/posts.html',
-    //   controller: 'PostsCtrl'
-    // });
 
   $urlRouterProvider.otherwise('login');
 }]);
