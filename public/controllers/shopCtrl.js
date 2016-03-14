@@ -8,17 +8,18 @@ app.controller("ShopCtrl", [
       $scope.shops = [
     {title: 'Arnie"s',
      image: "../images/Arnies.png",
-     hearts: 5,
+     baskets: 5,
      link: "http://www.arnies.com/mm5/merchant.mvc?Screen=SFNT",
+     commentCount: 3,
      comments: [
         {author: 'Hillary', body: 'Women should rule!', upvotes: 0},
         {author: 'Bill', body: 'What she said!', upvotes: 0},
         {author: 'me', body: 'FYI not May id', upvotes: 0}
                ]},
-    {title: 'shop 2', hearts: 2,},
-    {title: 'shop 3', hearts: 15},
-    {title: 'shop 4', hearts: 9},
-    {title: 'shop 5', hearts: 4}
+    {title: 'shop 2', baskets: 2,},
+    {title: 'shop 3', baskets: 15},
+    {title: 'shop 4', baskets: 9},
+    {title: 'shop 5', baskets: 4}
   ];
 
   // $scope.shops = "ARNIES";

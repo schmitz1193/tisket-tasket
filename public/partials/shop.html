@@ -1,19 +1,18 @@
   <h1>TASKET/BASKET</h1>
-  <div class="wrapper">
     <div class="row">
-    <div class="col-md-6">
-      <h2>Let's buy shoes!</h2>
-      <div ng-repeat="shop in shops | orderBy:'-hearts'">
-        <!-- <i class="fa fa-shopping-basket"></i> -->
-        <span class="fa fa-shopping-basket"
-        ng-click="incrementUpvotes(shop)"></span>
-
-        <i class="fa fa-comment-o"></i>
+      <h2>Select your shop</h2>
+      <div ng-repeat="shop in shops | orderBy:'-baskets'" class="col-md-3 col-md-offset-1">
         <a href="{{shop.link}}" target="_blank">
           {{shop.title}}
         </a>
         <img src="{{shop.image}}" class="shop-image">
+        <span class="fa fa-shopping-basket btn" ng-click="seeBaskets(shop.title)">
         </span>
+        {{shop.baskets}}
+        <span class="fa fa-comment-o btn" ng-click="seeComments(shop.title)">
+        </span>
+        {{shop.commentCount}}
       </div>
     </div>
-  </div>
+
+
