@@ -3,12 +3,12 @@
       <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{title}}</h2>
 
       <div ng-repeat="comment in comments" class="col-md-3 col-md-offset-1">
-      <!-- {{comment.userfirstname}}  {{comment.comment}} -->
+      {{comment.author}}  {{comment.body}}
       </div>
     </div>
     <div class-'row'>
       <h2>Leave a comment of your own!</h2>
-      <textarea class="form-control" rows="5"></textarea>
+      <textarea class="form-control" type="text" name="comment" ng-model="comment" placeholder="Write your comment here" rows="5"></textarea>
 <!--       <button ng-if="!todo.isEditing"
                     class="btn btn-info"
                     ng-click="onEditClick(todo)">
@@ -16,7 +16,7 @@
                 </button>
  -->
         <button class="btn btn-danger"
-                ng-click="saveTask()">
+                ng-click="saveComment()">
                 Save
         </button>
         <button class="btn btn-danger"
