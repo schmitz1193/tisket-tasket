@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 
+const PORT = process.env.PORT || 3000;  //set up environment port if none given default to 3000
+
 //test the server set route to index page
 // app.get('/', function (req,res) {
 //   res.send('Tisket Tasket keep me from the casket!')
@@ -13,5 +15,6 @@ app.use(express.static(__dirname + "/public"));
 
 
 
-app.listen(3000);
-console.log("port 3000 at your service");
+app.listen(PORT, () => {
+console.log(`${PORT} at your service. Node.js server started`);
+});
