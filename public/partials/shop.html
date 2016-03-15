@@ -6,12 +6,15 @@
           {{shop.title}}
         </a>
         <img src="{{shop.image}}" class="shop-image">
-        <span class="fa fa-shopping-basket btn" ng-click="seeBaskets(shop.title)">
+        <span class="fa fa-shopping-basket btn" ng-click="addBaskets(shop)">
         <!-- ng-click ="count = count +1" -->
         </span>
         {{shop.baskets}}
-        <span class="fa fa-comment-o btn" ng-click="seeComments(shop.title)">
-        </span>
+        <a href="#/comment">
+        <span class="fa fa-comment-o btn">
+        </span></a>
+ <!--         ng-click="seeComments(shop.title)">
+  -->
         {{shop.commentCount}}
       </div>
     </div>

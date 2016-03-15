@@ -22,8 +22,15 @@ app.controller("ShopCtrl", [
     {title: 'shop 5', baskets: 4}
   ];
 
-  // $scope.shops = "ARNIES";
   console.log("shops ", $scope.shops);
+
+  $scope.addBaskets = function(shop) {
+    //if the user has not already basket-favored this store then they can click and basket count will increment
+    console.log("title? ", shop.title);
+    console.log("baskets? ", shop.baskets);
+    shop.baskets += 1;
+    console.log("count?? ", shop.baskets);
+  }
 
   }
 ]);

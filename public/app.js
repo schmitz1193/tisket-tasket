@@ -20,6 +20,11 @@ function($stateProvider, $urlRouterProvider) {
       url: '/admin',
       templateUrl: '/partials/admin.html',
       controller: 'AdminCtrl'
+    })
+    .state('comment', {
+      url: '/comment',
+      templateUrl: '/partials/comment.html',
+      controller: 'CommentCtrl'
     });
 
   $urlRouterProvider.otherwise('login');

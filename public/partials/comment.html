@@ -1,0 +1,37 @@
+  <h1>TASKET/BASKET</h1>
+    <div class="row">
+      <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{title}}</h2>
+
+      <div ng-repeat="comment in comments" class="col-md-3 col-md-offset-1">
+      <!-- {{comment.userfirstname}}  {{comment.comment}} -->
+      </div>
+    </div>
+    <div class-'row'>
+      <h2>Leave a comment of your own!</h2>
+      <textarea class="form-control" rows="5"></textarea>
+<!--       <button ng-if="!todo.isEditing"
+                    class="btn btn-info"
+                    ng-click="onEditClick(todo)">
+                    Edit
+                </button>
+ -->
+        <button class="btn btn-danger"
+                ng-click="saveTask()">
+                Save
+        </button>
+        <button class="btn btn-danger"
+                ng-click="deleteTask()">
+                Delete
+        </button>
+        <button class="btn btn-danger"
+                ng-click="editTask()">
+                Edit
+        </button>
+        <button class="btn btn-danger"
+                ng-click="cancelTask()">
+                Cancel
+        </button>
+
+    </div>
+
+
