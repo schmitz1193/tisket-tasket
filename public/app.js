@@ -11,6 +11,11 @@ function($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/login.html',
       controller: 'LoginCtrl'
     })
+    .state('login.register', {
+      url: '/register',
+      templateUrl: '/partials/register.html',
+      controller: 'RegisterCtrl'
+    })
     .state('shop', {
       url: '/shop',
       templateUrl: '/partials/shop.html',

@@ -23,9 +23,11 @@
 
           <button type="submit" id="btn-xl" class="btn btn-primary" ng-click="login()" ng-disabled="userForm.$invalid">Login</button>
 
-          <a href="#/register" class="btn btn-link">Register</a>
-
+          <a ui-sref=".register">Register</a>
+<!--  class="btn btn-link" -->
           <a href="#/admin" class="btn btn-link">ADMINSTRATOR?</a>
+
+          <div ui-view></div>
 
 
         </form>
