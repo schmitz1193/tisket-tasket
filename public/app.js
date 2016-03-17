@@ -11,7 +11,7 @@ function($stateProvider, $urlRouterProvider) {
       templateUrl: '/partials/login.html',
       controller: 'LoginCtrl'
     })
-    .state('login.register', {
+    .state('register', {
       url: '/register',
       templateUrl: '/partials/register.html',
       controller: 'RegisterCtrl'
@@ -33,4 +33,6 @@ function($stateProvider, $urlRouterProvider) {
     });
 
   $urlRouterProvider.otherwise('login');
+
+  // $locationProvider.html5Mode(true);
 }]);

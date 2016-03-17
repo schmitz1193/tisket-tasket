@@ -3,7 +3,7 @@
       <h2>Select your shop.  Click on <i class="fa fa-shopping-basket"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o"></i></h2>
       <div ng-repeat="shop in shops | orderBy:'-baskets'" class="col-md-3 col-md-offset-1">
         <a href="{{shop.link}}" target="_blank">
-          {{shop.title}}
+          {{shop.company}}
         </a>
         <img src="{{shop.image}}" class="shop-image">
         <span class="fa fa-shopping-basket btn" ng-click="addBaskets(shop)">
