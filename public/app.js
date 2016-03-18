@@ -1,38 +1,30 @@
-var app = angular.module('MainApp', ['ui.router'])
+var app = angular.module('MainApp', ['ngRoute']);
 
-app.config([
-'$stateProvider',
-'$urlRouterProvider',
-function($stateProvider, $urlRouterProvider) {
-
-  $stateProvider
-    .state('login', {
-      url: '/login',
+app.config(function($routeProvider) {
+  $routeProvider
+    .when('/login', {
       templateUrl: '/partials/login.html',
       controller: 'LoginCtrl'
     })
-    .state('register', {
-      url: '/register',
+    .when('/register',{
       templateUrl: '/partials/register.html',
       controller: 'RegisterCtrl'
     })
-    .state('shop', {
-      url: '/shop',
+    .when('/shop', {
       templateUrl: '/partials/shop.html',
       controller: 'ShopCtrl'
     })
-    .state('admin', {
-      url: '/admin',
+    .when('/admin', {
       templateUrl: '/partials/admin.html',
       controller: 'AdminCtrl'
     })
-    .state('comment', {
-      url: '/comment',
+    .when('/comment', {
       templateUrl: '/partials/comment.html',
       controller: 'CommentCtrl'
+    })
+    .otherwise({
+      redirectTo: '/login'
     });
+});
 
-  $urlRouterProvider.otherwise('login');
 
-  // $locationProvider.html5Mode(true);
-}]);

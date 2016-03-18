@@ -1,9 +1,9 @@
 //This is the controller for the shop page
 'use strict'
 app.controller("ShopCtrl", [
-  '$scope', '$http', '$location',
+  '$scope', '$http', '$location', '$routeParams',
 
-  function($scope, $http, $location){
+  function($scope, $http, $location, $routeParams){
 
     console.log("I'm SHOPPING");
   //   $scope.shops = [
