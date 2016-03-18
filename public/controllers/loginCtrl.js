@@ -2,13 +2,19 @@
 
 'use strict'
 app.controller("LoginCtrl", [
-  '$scope', "$location",
+  '$scope', "$http", "$location",
 
-  function($scope, $location){
+  function($scope, $http, $location){
 
     $scope.login = function(){
       console.log("email ", $scope.email);
       console.log("password ", $scope.password);
+
+      $http.post('/login').success((response) => {
+        console.log("show me the db login ", response);
+        // $scope. = response;
+  });
+
       //****I need some validation here from db!!
       // change the path
       //if valid && admin go to admin.html

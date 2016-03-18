@@ -1,9 +1,9 @@
   <h1>TASKET/BASKET</h1>
   <h2>Hello Administrators! Add your shopping websites!</h2>
-<form class="form-group form-horizontal" name="userForm" novalidate action="/admin" method="POST">
+<form class="form-group form-horizontal" name="userForm">
     <label for="title" class="col-sm-2 control-label">Company Name</label>
     <div class="col-sm-10">
-      <input class="form-control" type="text" name="company" ng-model="company" placeholder="Enter Compnay Name" required=""/>
+      <input class="form-control" type="text" name="company" ng-model="company" placeholder="Enter Company Name" required=""/>
       <div ng-show="userForm.$submitted || userForm.company.$touched">
         <span ng-show="userForm.company.$error.required">Company is required.</span>
       </div>
@@ -15,20 +15,18 @@
             <span ng-show="userForm.link.$error.required">Please enter the websites link</span>
       </div>
     </div>
-<!----WILL NEED TO ADD SOME SORT OF IMAGE UPLOAD---->
-    <label for="image" class="col-sm-2 control-label">Image</label>
-    <div class="col-sm-10">
-      <input type="file" class="form-control" type="file" name="image" accept="image/*" ng-model="image" placeholder="Website Image" />
-      <!-- <div ng-show="userForm.$submitted || userForm.image.$touched"> -->
-        <!-- <span ng-show="userForm.image.$error.required">Please download the websites image</span> -->
+<!--WILL NEED TO ADD SOME SORT OF IMAGE UPLOAD-->
+<!--     <label for="image" class="col-sm-2 control-label">Image</label>
+      <div class="col-sm-10">
+        <input type="file" class="form-control" type="file" name="image" accept="image/*" ng-model="image" placeholder="Website Image" />
+ -->      <!-- <div ng-show="userForm.$submitted || userForm.image.$touched"> -->
+        <!-- <span ng-show="userForm.image.$error.required">Please download the websites image</span>
       </div>
-    </div>
-  </div>
+-->
 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default"  ng-disabled="userForm.$invalid">Submit New Company Website</button>
+      <button type="submit" class="btn btn-default" ng-click="addWebsite()"  ng-disabled="userForm.$invalid">Submit New Company Website</button>
 
-<!--       ng-click="addWebsite()"  -->
       <a href="#/login" class="btn btn-link">Cancel</a>
      </div>
 </form>

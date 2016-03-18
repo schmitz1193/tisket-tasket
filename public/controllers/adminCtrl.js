@@ -6,11 +6,12 @@ app.controller("AdminCtrl", [
 
   function($scope){
     console.log("I'm in charge of shops!");
-    const company = '';
-    const link = '';
-    $scope.addWebsite = function() {
+
+
+     $scope.addWebsite = function() {
       console.log("company ", $scope.company);
       console.log("link ", $scope.link);
+      // console.log("image ", $scope.image);
 
       //now this data needs to be sent to the server  to add to the db
     }

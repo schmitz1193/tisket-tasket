@@ -5,7 +5,7 @@
 // const request = require("request");
 // const express = require('express');
 // const router = express.Router();
-const Admin = require("../models/admin");
+const Admin = require("../models/shops");
 
 module.exports.new = (req,res) => {
   const adminObj = new Admin({

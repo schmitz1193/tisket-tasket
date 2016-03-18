@@ -2,7 +2,7 @@
 <h2>We're glad you are joining us.</h2>
 <h2>Please complete the form below--all fields are required</h2>
 
-<form class="form-group" name="userForm" novalidate action="/register" method="POST">
+<form class="form-group" name="userForm" novalidate>
 
   <div class="form-group">
     <div class="input-group">
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <button type="submit" id="btn-xl" class="btn btn-primary" ng-disabled="userForm.$invalid">Register</button>
+  <button type="submit" id="btn-xl" class="btn btn-primary" ng-click="register()" ng-disabled="userForm.$invalid">Register</button>
 
 
 </form>

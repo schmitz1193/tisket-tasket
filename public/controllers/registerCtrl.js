@@ -6,10 +6,12 @@ app.controller("RegisterCtrl", [
 
   function($scope, $location){
 
-    $scope.login = function(){
+    $scope.register = function(){
       console.log("I am going to register");
-      // console.log("email ", $scope.email);
-      // console.log("password ", $scope.password);
+      console.log("email ", $scope.email);
+      console.log("password ", $scope.password);
+      console.log("first ", $scope.firstName);
+      console.log("last ", $scope.lastName);
     }
   }
 ]);

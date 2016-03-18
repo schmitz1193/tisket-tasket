@@ -1,24 +1,41 @@
 //ctrls/login.js
 "use strict";
 
+// const express = require('express');
+// const passport = require('passport');
+// const router = express.Router();
+
 //dependencies
 const User = require("../models/users");
 
-module.exports.check = (req,res) => {
-  User.find(function(err, existing){
+//get all shops
+module.exports.post = (req,res) => {
+    User.find((err,allUsersObj) => {
     if (err) throw err;
-    console.log("this is in the user collecion: ", existing);
-    console.log("body email ", req.body.email);
-    for (var x = 0; x < existing.length; x++) {
-      if (existing.user.email[x] === req.body.email) {
-        res.redirect('/#/shop');
-      }
-    }
-    console.log("You do not have an account");
-    res.redirect('/#/login');
+    console.log("allUsersObj ", allUsersObj);
+    res.json(allUsersObj);
   });
-};
+}
 
 
+// module.exports.post = (req,res) => {
+//    passport.authenticate('local',
+//     {
+//       failureFlash: 'Incorrect email or password',
+//       failureRedirect: '/login',
+//       successFlash: 'Success!',
+//       successRedirect: '/#/shop'
+//     }
+//   )
+// };
 
+// module.exports.delete = (req,res) => {
+//   req.session.regenerate(function(err) {
+//     if (err) throw err;
+
+//     res.redirect('/#/login');
+//   });
+// };
+
+// module.exports = router;
 

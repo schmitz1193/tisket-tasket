@@ -5,6 +5,7 @@ const app = express();
 //process for forms
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const passport = require('passport');
 //slash as the end indicated you look in index first
 const routes = require('./routes/');
 
@@ -36,6 +37,10 @@ app.use(bodyParser.json());
 
 //this tells the server where to get the static files--the ones that don't change
 app.use(express.static(__dirname + "/public"));
+
+//login authentication
+app.use(passport.initialize());
+app.use(passport.session());
 
 //allows you to use the diferent routes
 app.use(routes);
