@@ -15,18 +15,18 @@ const UserSchema = mongoose.Schema({
   admin: Boolean
   });
 
-UserSchema.methods.authenticate = function (password, cb) {
-  bcrypt.compare(password, this.password, cb);
-};
+// UserSchema.methods.authenticate = function (password, cb) {
+//   bcrypt.compare(password, this.password, cb);
+// };
 
-UserSchema.pre('save', function (next) {
-  bcrypt.hash(this.password, BCRYPT_DIFFICULTY, (err, hash) => {
-    if (err) throw err;
+// UserSchema.pre('save', function (next) {
+//   bcrypt.hash(this.password, BCRYPT_DIFFICULTY, (err, hash) => {
+//     if (err) throw err;
 
-    this.password = hash;
-    next();
-  });
-});
+//     this.password = hash;
+//     next();
+//   });
+// });
 
 
 module.exports = mongoose.model('Users', UserSchema);

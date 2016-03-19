@@ -34,12 +34,12 @@ console.log('URL', MONGODB_URL);
 
 
 //login authentication
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(session({
   secret: SESSION_SECRET,
   store: new RedisStore()
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 // app.use((req, res, next) => {
 //   res.locals.user = req.user;
 //   next();

@@ -25,7 +25,8 @@ app.controller("ShopCtrl", [
 
   $http.get('/shop').success((response) => {
     console.log("show me the db shop ", response);
-    $scope.shops = response;
+    console.log("sue are you here?", response.user);
+    $scope.shops = response.shops;
   });
 
   //console.log("shops ", $scope.shops);
