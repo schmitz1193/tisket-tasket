@@ -24,7 +24,8 @@ passport.use(new LocalStrategy({
     console.log("email ", email);
       console.log("password ", password);
     User.findOne({ email: email }, function(err, user) {
-      if (err) throw err;
+      // if (err) throw err;
+      if (err) { console.log("ERROR ERROR"); }
 
       if (user) {
         console.log("autheticating user to password");
@@ -38,6 +39,8 @@ passport.use(new LocalStrategy({
           }
         });
       } else {
+        //makes it here check error msg.
+        console.log("DONE?");
         done();
       }
     });
