@@ -12,7 +12,7 @@ const Shops = require("../models/shops");
 module.exports.shopping = (req,res) => {
     Shops.find((err,allShopsObj) => {
     if (err) throw err;
-    console.log("allShopsObj ", allShopsObj);
+    // console.log("allShopsObj ", allShopsObj);
     res.json(allShopsObj);
   });
 }

@@ -11,7 +11,7 @@ const shop = require('../ctrls/shops');
 // const transaction = require('./comment');
 
 
-router.post('/login', login.post);  //sets /contact as the index page
+router.post('/login', login.loginUser);
 // router.delete('/login', login.delete);
 
 router.post('/register', register.new);

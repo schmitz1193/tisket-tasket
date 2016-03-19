@@ -2,32 +2,26 @@
 "use strict";
 
 // const express = require('express');
-// const passport = require('passport');
+const passport = require('passport');
 // const router = express.Router();
 
 //dependencies
 const User = require("../models/users");
 
-//get all shops
-module.exports.post = (req,res) => {
-    User.find((err,allUsersObj) => {
-    if (err) throw err;
-    console.log("allUsersObj ", allUsersObj);
-    res.json(allUsersObj);
-  });
-}
+//passport file
+require('./local');
 
 
-// module.exports.post = (req,res) => {
-//    passport.authenticate('local',
-//     {
-//       failureFlash: 'Incorrect email or password',
-//       failureRedirect: '/login',
-//       successFlash: 'Success!',
-//       successRedirect: '/#/shop'
-//     }
-//   )
-// };
+module.exports.loginUser =
+   passport.authenticate('local',
+    {
+      // failureFlash: 'Incorrect email or password',
+      failureRedirect: '/login',
+      // successFlash: 'Success!',
+      successRedirect: '/shop'
+    }
+  );
+
 
 // module.exports.delete = (req,res) => {
 //   req.session.regenerate(function(err) {
@@ -37,5 +31,13 @@ module.exports.post = (req,res) => {
 //   });
 // };
 
-// module.exports = router;
 
+
+// module.exports.loginUser = (req,res) => {
+//     console.log('request? ', req.body.email);
+//     User.find((err,allUsersObj) => {
+//     if (err) throw err;
+//     console.log("allUsersObj ", allUsersObj);
+//     res.json(allUsersObj);
+//   });
+// }

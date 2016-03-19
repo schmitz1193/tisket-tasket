@@ -10,7 +10,7 @@ app.controller("LoginCtrl", [
       console.log("email ", $scope.email);
       console.log("password ", $scope.password);
 
-      $http.post('/login').success((response) => {
+      $http.post('/login', {email: $scope.email, password: $scope.password}).success((response) => {
         console.log("show me the db login ", response);
         // $scope. = response;
   });
