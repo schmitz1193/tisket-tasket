@@ -15,18 +15,19 @@ passport.deserializeUser(function (id, done) {
   User.findById(id, done);
 });
 
-passport.use(new LocalStrategy(
-  // usernameField: 'req.body.email',
-  // passwordField: 'req.body.password'
-  // },
-  // (req, email, password, done) => {
-  //   User.findOne({ email: email }, (err, user) => {
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+  },
   function(email, password, done) {
     console.log("I made it to new local strategy");
-    User.findOne({ username: email }, function(err, user) {
+    console.log("email ", email);
+      console.log("password ", password);
+    User.findOne({ email: email }, function(err, user) {
       if (err) throw err;
 
       if (user) {
+        console.log("autheticating user to password");
         user.authenticate(password, (err, valid) => {
           if (err) throw err;
 

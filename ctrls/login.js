@@ -34,7 +34,7 @@ module.exports.loginUser =
 
 
 // module.exports.loginUser = (req,res) => {
-//     console.log('request? ', req.body.email);
+//     console.log('request? ', req.body.email);  //WORKS
 //     User.find((err,allUsersObj) => {
 //     if (err) throw err;
 //     console.log("allUsersObj ", allUsersObj);
