@@ -13,10 +13,13 @@ module.exports.new = (req,res) => {
     link: req.body.link,
     image: req.body.image,
     baskets: 0,
-    commentCount: 0
+    basketVote: [],
+    commentCount: 0,
+    comments: []
   });
 
   adminObj.save((err, newObj) => {
+    console.log("Did I get here?");
     if (err) throw err;
     console.log("newObj ", newObj);
     res.redirect('/#/login');

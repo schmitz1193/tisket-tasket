@@ -7,7 +7,9 @@ module.exports = mongoose.model("shops", mongoose.Schema({
   link: String,
   image: String,
   baskets: Number,
-  commentCount: Number
+  basketVote: [{userId: String}],
+  commentCount: Number,
+  comments: [{firstname: String, text: String}]
   }));
 
 
