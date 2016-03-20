@@ -3,17 +3,23 @@
 app.controller("ShopCtrl", [
   '$scope', '$http', '$location', '$routeParams',
 
-  function($scope, $http, $location, $routeParams){
+  function($scope, $http, $location, $routeParams) {
+      //lodash
+      //how to pass this as depemdency in app.js
+    _ = window._;
 
-    console.log("I'm SHOPPING");
+
+  //   console.log("I'm SHOPPING");
   //   $scope.shops = [
   //   {company: 'Arnie"s',
   //    image: "../images/Arnies.png",
   //    baskets: 5,
+  //    basketVote: [
+  //        {userId: '56ead0cc5299a69551a849ca'}],
   //    link: "http://www.arnies.com/mm5/merchant.mvc?Screen=SFNT",
   //    commentCount: 3,
   //    comments: [
-  //       {author: 'Hillary', body: 'Women should rule!', upvotes: 0},
+  //       {firstName: 'Hillary', text: 'Women should rule!'},
   //       {author: 'Bill', body: 'What she said!', upvotes: 0},
   //       {author: 'me', body: 'FYI not May id', upvotes: 0}
   //              ]},
@@ -27,17 +33,22 @@ app.controller("ShopCtrl", [
     console.log("show me the db shop ", response);
     console.log("sue are you here?", response.user);
     $scope.shops = response.shops;
+    $scope.user = response.user;
+    console.log("scope user ", $scope.user);
   });
 
-  //console.log("shops ", $scope.shops);
-
   $scope.addBaskets = function(shop) {
+    console.log("user????? ", $scope.user._id);
+    console.log("select company ", shop.company);
+    console.log("shop selected ", shop);
     //if the user has not already basket-favored this store then they can click and basket count will increment
-    console.log("company? ", shop.company);
-    console.log("baskets? ", shop.baskets);
-    shop.baskets += 1;
-    console.log("count?? ", shop.baskets);
+    // const match = _.find(shop.basketVote, 'userId', $scope.user_id);
+    //   if (match)
+    //     console.log("you have already favored this shop");
+    //   if (!match)
+    //     console.log("Thanks for liking me!");
+    //     shop.baskets += 1;
+    //     shop.basketVote.push(userId: $scope.user._id);
+    //     $http.put('/shop/'+ shop._id, shop)
   }
-
-  }
-]);
+}]);
