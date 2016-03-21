@@ -8,7 +8,7 @@ const login = require('../ctrls/login');
 const register = require('../ctrls/register');
 const admin = require('../ctrls/admin');
 const shop = require('../ctrls/shops');
-// const transaction = require('./comment');
+const comment = require('../ctrls/comment');
 
 
 router.post('/login', login.loginUser);
@@ -18,7 +18,7 @@ router.post('/register', register.new);
 router.post('/admin', admin.new);
 router.get('/shop', shop.shopping);
 router.put('/shop/:id', shop.baskets);
-// router.use(comment);
+router.put('/comment/:id', comment.save);
 
 module.exports = router;
 

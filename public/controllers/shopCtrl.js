@@ -39,7 +39,7 @@ app.controller("ShopCtrl", [
     console.log("select company ", shop.company);
     console.log("shop selected ", shop);
     //if the user has not already basket-favored this store then they can click and basket count will increment
-    const match = _.find(shop.basketVote, 'userId', $scope.user_id);
+    const match = _.find(shop.basketVote, {'userId': $scope.user_id});
       if (match) {
         console.log("you have already favored this shop");
       }
@@ -58,6 +58,7 @@ app.controller("ShopCtrl", [
     console.log("in see comments");
     basketWorks.setShop(shop);
     basketWorks.setUser($scope.user._id);
+    basketWorks.setAuthor($scope.user.firstName);
     $location.path('/comment');
 
   }

@@ -1,60 +1,58 @@
   <h1>TASKET/BASKET</h1>
-    <div class="row">
-      <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{title}}</h2>
+    <div class="row">    <!-- <div class-'row'> -->
+      <div ng-show='userComment'>
+        <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{shop.company}}</h2>
+        <span>
+          <h2>This is what you said!</h2>
+          <div contentEditable="true" ng-model="udateComment" title="Click to edit">
+            <h3>{{currentUserComment}}</h3>
+          </div>
+          <button class="btn btn-danger"
+                  ng-click="deleteComment()">
+                  Delete
+          </button>
+          <button class="btn btn-primary"
+                  ng-click="updateComment()">
+                  Update
+          </button>
+          <button class="btn btn-danger"
+                  ng-click="cancelComment()">
+                  Cancel
+          </button>
+        </span>
+      </div>
+      <div ng-show="!userComment">
+        <span>
+          <textarea class='form-control' type="text" name="comment" ng-model="currentUserComment" placeholder="Write your comment here" rows="5"></textarea>
+          <button class="btn btn-primary"
+                  ng-click="saveComment()">
+                  Save
+          </button>
+          <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{shop.company}}</h2>
+        </span>
+      </div>
     </div>
-    <div class-'row'>
-      <h2>Leave a comment of your own!</h2>
-      <textarea class="form-control" type="text" name="comment" ng-model="comment" placeholder="Write your comment here" rows="5"></textarea>
-<!--       <button ng-if="!todo.isEditing"
-                    class="btn btn-info"
-                    ng-click="onEditClick(todo)">
-                    Edit
-                </button>
- -->
-        <button class="btn btn-danger"
-                ng-click="saveComment()">
-                Save
-        </button>
-        <button class="btn btn-danger"
-                ng-click="deleteTask()">
-                Delete
-        </button>
-        <button class="btn btn-danger"
-                ng-click="editTask()">
-                Edit
-        </button>
-        <button class="btn btn-danger"
-                ng-click="cancelTask()">
-                Cancel
-        </button>
 
-    </div>
+  <div ng-show='otherComments'>
+    <h1>COMMENTS</h1>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>AUTHOR</th>
+          <th>What they said:</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='comment in comments'>
+          <td>{{comment.author}}</td>
+          <td>{{comment.text}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h1>COMMENTS</h1>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>AUTHOR</th>
-        <th>What they said:</th>
-        <th>&nbsp;</th>
-      </tr>
-    </thead>
- <!--      <tr>
-        <td><input class="form-control" ng-model="contact.name"></td>
-        <td><input class="form-control" ng-model="contact.email"></td>
-        <td><input class="form-control" ng-model="contact.number"></td>
-        <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
-        <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
-      </tr>
-  -->
-    <tbody>
-      <tr ng-repeat='comment in comments'>
-        <td>{{comment.author}}</td>
-        <td>{{comment.body}}</td>
-<!--         <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
-        <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
- -->
-      </tr>
-    </tbody>
-  </table>
+  <div ng-show='!otherComments'>
+    <h2>No other comments have been left for this shop</h2>
+  </div>
 
