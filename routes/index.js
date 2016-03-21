@@ -17,6 +17,7 @@ router.post('/login', login.loginUser);
 router.post('/register', register.new);
 router.post('/admin', admin.new);
 router.get('/shop', shop.shopping);
+router.put('/shop/:id', shop.baskets);
 // router.use(comment);
 
 module.exports = router;

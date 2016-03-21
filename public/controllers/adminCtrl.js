@@ -7,16 +7,13 @@ app.controller("AdminCtrl", [
   function($scope, $http, $location){
     console.log("I'm in charge of shops!");
 
-
      $scope.addWebsite = function() {
       console.log("company ", $scope.company);
       console.log("link ", $scope.link);
       $http.post('/admin', {company: $scope.company, link: $scope.link}).success((response) => {
         console.log("show me the new company! ", response);
+        $location.path('/shop');
       });
-      // console.log("image ", $scope.image);
-
-      //now this data needs to be sent to the server  to add to the db
     }
   }
 ]);

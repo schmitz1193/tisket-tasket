@@ -1,11 +1,11 @@
 //This is the controller for the shop page
 'use strict'
 app.controller("ShopCtrl", [
-  '$scope', '$http', '$location', '$routeParams',
+  '$scope', '$http', '$location', '$routeParams', "basketWorks",
 
-  function($scope, $http, $location, $routeParams) {
+  function($scope, $http, $location, $routeParams, basketWorks) {
       //lodash
-      //how to pass this as depemdency in app.js
+      //how to pass this as dependency in app.js
     _ = window._;
 
 
@@ -30,11 +30,8 @@ app.controller("ShopCtrl", [
   // ];
 
   $http.get('/shop').success((response) => {
-    console.log("show me the db shop ", response);
-    console.log("sue are you here?", response.user);
     $scope.shops = response.shops;
     $scope.user = response.user;
-    console.log("scope user ", $scope.user);
   });
 
   $scope.addBaskets = function(shop) {
@@ -42,13 +39,26 @@ app.controller("ShopCtrl", [
     console.log("select company ", shop.company);
     console.log("shop selected ", shop);
     //if the user has not already basket-favored this store then they can click and basket count will increment
-    // const match = _.find(shop.basketVote, 'userId', $scope.user_id);
-    //   if (match)
-    //     console.log("you have already favored this shop");
-    //   if (!match)
-    //     console.log("Thanks for liking me!");
-    //     shop.baskets += 1;
-    //     shop.basketVote.push(userId: $scope.user._id);
-    //     $http.put('/shop/'+ shop._id, shop)
+    const match = _.find(shop.basketVote, 'userId', $scope.user_id);
+      if (match) {
+        console.log("you have already favored this shop");
+      }
+      if (!match) {
+        console.log("Thanks for liking me!");
+        shop.baskets += 1;
+        shop.basketVote.push({userId: $scope.user._id});
+        console.log("new basketVote ", shop.basketVote);
+        $http.put('/shop/'+ shop._id, {baskets: shop.baskets, userId: $scope.user._id}).success((response) => {
+          console.log("will I ever make it here?");
+        });
+      }
+  }
+
+  $scope.seeComments = function(shop) {
+    console.log("in see comments");
+    basketWorks.setShop(shop);
+    basketWorks.setUser($scope.user._id);
+    $location.path('/comment');
+
   }
 }]);

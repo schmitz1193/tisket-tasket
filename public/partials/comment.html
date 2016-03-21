@@ -1,10 +1,6 @@
   <h1>TASKET/BASKET</h1>
     <div class="row">
       <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{title}}</h2>
-
-      <div ng-repeat="comment in comments" class="col-md-3 col-md-offset-1">
-      {{comment.author}}  {{comment.body}}
-      </div>
     </div>
     <div class-'row'>
       <h2>Leave a comment of your own!</h2>
@@ -34,4 +30,31 @@
 
     </div>
 
+  <h1>COMMENTS</h1>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>AUTHOR</th>
+        <th>What they said:</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+ <!--      <tr>
+        <td><input class="form-control" ng-model="contact.name"></td>
+        <td><input class="form-control" ng-model="contact.email"></td>
+        <td><input class="form-control" ng-model="contact.number"></td>
+        <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+        <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+      </tr>
+  -->
+    <tbody>
+      <tr ng-repeat='comment in comments'>
+        <td>{{comment.author}}</td>
+        <td>{{comment.body}}</td>
+<!--         <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+        <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+ -->
+      </tr>
+    </tbody>
+  </table>
 

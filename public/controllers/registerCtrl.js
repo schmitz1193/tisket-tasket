@@ -2,9 +2,9 @@
 
 'use strict'
 app.controller("RegisterCtrl", [
-  '$scope', "$location",
+  '$scope', "$http", "$location",
 
-  function($scope, $location){
+  function($scope, $http, $location){
 
     $scope.register = function(){
       console.log("I am going to register");
@@ -12,6 +12,14 @@ app.controller("RegisterCtrl", [
       console.log("password ", $scope.password);
       console.log("first ", $scope.firstName);
       console.log("last ", $scope.lastName);
+      $http.post('/register', {email: $scope.email,
+                               password: $scope.password,
+                               firstName: $scope.firstName,
+                               lastName: $scope.lastName
+                              }).success((response) => {
+        console.log("Added new user ", response);
+        $location.path('/shop');
+        });
+      }
     }
-  }
 ]);

@@ -18,10 +18,24 @@ module.exports.shopping = (req,res) => {
               user: req.user});
   });
 }
-
-// module.exports.new = (req,res) => {
-//   console.log("So now I made it to admin.js ctrls!!!")
-//   console.log(req.body);
-//   res.redirect('/#/login')
-// }
+//update basket counts and favorite users
+module.exports.baskets = (req,res) => {
+  console.log("made it to baskets!!! ");
+  console.log("params? ", req.params.id);
+  console.log("body? ", req.body);
+  const query = {'_id': req.params.id};
+  const basketVotes = {userid: req.body.userId};
+  const doc = {
+            $set: {baskets: req.body.baskets},
+            $push: {basketVote: basketVotes}
+               };
+  const options = {upsert: true};
+  Shops.findOneAndUpdate(query, doc, options,
+    function(err,shop) {
+      if (err) throw err
+      console.log("have I updated? ", shop);
+    res.json({shops: shop,
+              user: req.user});
+  });
+}
 

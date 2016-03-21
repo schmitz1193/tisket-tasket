@@ -12,13 +12,12 @@ module.exports.new = (req,res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password,
-    admin: true
+    admin: false
   });
 
   userObj.save((err, newObj) => {
     if (err) throw err;
-    console.log("newObj ", newObj);
-    res.redirect('/#/shop');
+    res.send('newOjb');
   });
 }
 
