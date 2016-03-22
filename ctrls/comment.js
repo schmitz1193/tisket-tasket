@@ -13,12 +13,12 @@ module.exports.save = (req,res) => {
   console.log("params? ", req.params.id);
   console.log("body? ", req.body);
   const query = {'_id': req.params.id};
-  const comment = {userid: req.body.userId, author: req.body.author, text: req.body.text};
+  const comment = {userId: req.body.userId, firstName: req.body.author, text: req.body.text};
   const doc = {
             $set: {commentCount: req.body.commentCount},
             $push: {comments: comment}
                };
-  const options = {upsert: true};
+  const options = {new: true};
   Shops.findOneAndUpdate(query, doc, options,
     function(err,shop) {
       if (err) throw err

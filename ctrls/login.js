@@ -12,15 +12,10 @@ const User = require("../models/users");
 require('./local');
 
 
-module.exports.loginUser =
-   passport.authenticate('local',
-    {
-      // failureFlash: 'Incorrect email or password',
-      failureRedirect: '/login',
-      // successFlash: 'Success!',
-      successRedirect: '/shop'
-    }
-  );
+module.exports.loginUser = function(req, res) {
+  console.log('status? ');
+  res.sendStatus(200);
+}
 
 
 // module.exports.delete = (req,res) => {
@@ -31,13 +26,3 @@ module.exports.loginUser =
 //   });
 // };
 
-
-
-// module.exports.loginUser = (req,res) => {
-//     console.log('request? ', req.body.email);  //WORKS
-//     User.find((err,allUsersObj) => {
-//     if (err) throw err;
-//     console.log("allUsersObj ", allUsersObj);
-//     res.json(allUsersObj);
-//   });
-// }

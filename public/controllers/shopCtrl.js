@@ -35,17 +35,20 @@ app.controller("ShopCtrl", [
   });
 
   $scope.addBaskets = function(shop) {
-    console.log("user????? ", $scope.user._id);
+    console.log("user is  correct  ", $scope.user._id);
     console.log("select company ", shop.company);
     console.log("shop selected ", shop);
     //if the user has not already basket-favored this store then they can click and basket count will increment
-    const match = _.find(shop.basketVote, {'userId': $scope.user_id});
+    const match = _.find(shop.basketVote, {'userId': $scope.user._id});
       if (match) {
+        console.log("match ", match);
         console.log("you have already favored this shop");
       }
       if (!match) {
+        console.log("no match? ", match);
         console.log("Thanks for liking me!");
         shop.baskets += 1;
+        //put count on scope so it reflects the count right away:
         shop.basketVote.push({userId: $scope.user._id});
         console.log("new basketVote ", shop.basketVote);
         $http.put('/shop/'+ shop._id, {baskets: shop.baskets, userId: $scope.user._id}).success((response) => {

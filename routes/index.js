@@ -11,7 +11,7 @@ const shop = require('../ctrls/shops');
 const comment = require('../ctrls/comment');
 
 
-router.post('/login', login.loginUser);
+router.post('/login', passport.authenticate('local'), login.loginUser);
 // router.delete('/login', login.delete);
 
 router.post('/register', register.new);

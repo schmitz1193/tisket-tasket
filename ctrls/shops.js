@@ -12,28 +12,28 @@ const Shops = require("../models/shops");
 module.exports.shopping = (req,res) => {
     Shops.find((err,allShopsObj) => {
     if (err) throw err;
-    console.log("allShopsObj ", allShopsObj);
-    console.log("users?? ", req.user);
+    // console.log("allShopsObj ", allShopsObj);
+    // console.log("users?? ", req.user);
     res.json({shops: allShopsObj,
               user: req.user});
   });
 }
 //update basket counts and favorite users
 module.exports.baskets = (req,res) => {
-  console.log("made it to baskets!!! ");
-  console.log("params? ", req.params.id);
+  // console.log("made it to baskets!!! ");
+  // console.log("params? ", req.params.id);
   console.log("body? ", req.body);
   const query = {'_id': req.params.id};
-  const basketVotes = {userid: req.body.userId};
+  const basketVotes = {userId: req.body.userId};
   const doc = {
             $set: {baskets: req.body.baskets},
             $push: {basketVote: basketVotes}
                };
-  const options = {upsert: true};
+  const options = {new: true};
   Shops.findOneAndUpdate(query, doc, options,
     function(err,shop) {
       if (err) throw err
-      console.log("have I updated? ", shop);
+      // console.log("have I updated? ", shop);
     res.json({shops: shop,
               user: req.user});
   });

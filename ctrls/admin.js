@@ -11,7 +11,7 @@ module.exports.new = (req,res) => {
   const adminObj = new Admin({
     company: req.body.company,
     link: req.body.link,
-    image: '../images/BasketWeavingSupplies.png',
+    image: '../images/BasketPatterns.png',
     baskets: 0,
     basketVote: [],
     commentCount: 0,

@@ -6,29 +6,23 @@ app.controller("LoginCtrl", [
 
   function($scope, $http, $location){
 
+    $scope.errMessage = false;
+
     $scope.login = function(){
       console.log("email ", $scope.email);
       console.log("password ", $scope.password);
 
-      $http.post('/login', {email: $scope.email, password: $scope.password}).success((response) => {
-        console.log("show me the db login ", response);
-        // $scope. = response;
-  });
+      $http
+        .post('/login', {email: $scope.email, password: $scope.password})
+        .success((response) => {
+          console.log("show me the db login ", response);
+          $location.path('/shop');
+        }, function(err) {
+          console.log('ERRR!')
+          $scope.errMessage = true;
+          $location.path('/')
+        })
 
-      //****I need some validation here from db!!
-      // change the path
-      //if valid && admin go to admin.html
-      // const admin = false;
-
-      // If (admin === true) {
-      //   $location.path('/admin');
-      // } else {
-      // //if valid && admin go to shop.html
-        $location.path('/shop');
-        // }
-      //if invalid err msg
-      //if register show register info
-    console.log("coming from loginCtrl.js");
     }
   }
 ]);
