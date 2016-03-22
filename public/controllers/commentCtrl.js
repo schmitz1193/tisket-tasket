@@ -74,6 +74,8 @@ app.controller("CommentCtrl", [
      }
 
     $scope.updateComment = function(){
+
+      //rethinking if I want to update or just let them delete and then add another???
       console.log("I'm updating ", $scope.currentUserComment);
     }
     $scope.deleteComment = function(){
