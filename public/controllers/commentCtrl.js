@@ -16,6 +16,7 @@ app.controller("CommentCtrl", [
 
     $scope.shop = shop;
     $scope.name = name;
+    $scope.userId = userId;
 
     //need to to ng-show for when there are no comments
 
@@ -24,17 +25,14 @@ app.controller("CommentCtrl", [
     if (shop.commentCount = 0)
       $scope.otherComments = false;
 
-   // $scope.comments = [
-   //      {userId: '123', author: 'Hillary', text: 'Women should rule!'},
-   //      {userId: '456', author: 'Bill', text: 'What she said!'},
-   //      {userId: '789', author: 'me', text: 'FYI not May I'}
-   //  ];
-
     const match = _.find(shop.comments, {'userId': userId});
       if(match) {
         $scope.userComment = true;
         console.log("match? ", match);
         $scope.currentUserComment = match.text;
+///////////  NEED TO DO THIS
+//user has a comment so if commentcount is 1 then the switch to show other comments needs to be turned off
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
         const remainingComments = _.filter(shop.comments, (comment) => {
           return comment.userId !== userId
         });
@@ -51,16 +49,10 @@ app.controller("CommentCtrl", [
         $scope.comments = shop.comments;
       };
 
-// check if logged in user has a comment, if yes, display comment with edit and delete button.
-// if user does not have a comment, display text area so they can leave a comment if they wish.
-
-   // $scope.currentUserComment = "I just want a job";
-
-
     $scope.saveComment = function(){
       console.log("I'm adding a comment ", $scope.currentUserComment);
       shop.commentCount += 1;
-      $http.put('/comment/'+ shop._id, {commentCount: shop.commentCount,
+      $http.post('/comment/'+ shop._id, {commentCount: shop.commentCount,
                                         userId: userId,
                                         author: name,
                                         text: $scope.currentUserComment})
@@ -76,12 +68,42 @@ app.controller("CommentCtrl", [
     $scope.updateComment = function(){
       console.log("I'm updating ", $scope.currentUserComment);
     }
+
+
     $scope.deleteComment = function(){
+      console.log("delete userId ", userId);
       console.log("I'm deleting ", $scope.currentUserComment);
+      console.log("fjirst commentCount ", $scope.shop.commentCount);
+
+      const Count = $scope.shop.comment - 1;
+      console.log("commentCount ", shop.commentCount);
+
+      $http.delete('/comment/'+ shop._id + '/' + userId, {commentCount: Count})
+                                        .success((response) => {
+                                        console.log("deleted a comment");
+                                        });
     }
+
+
+
     $scope.cancelComment = function(){
       console.log("I'm canceling-where should I go? ");
     }
+
+    $scope.logout = function(){
+    console.log("I'm logging out ");
+    $http
+      .delete('/login')
+      .success((response) => {
+        console.log("have I logged out?");
+        $location.path('/login');
+      }, function(err) {
+        console.log('ERRR!')
+        $scope.errMessage = true;
+        $location.path('/login')
+      })
+    }
+
 
 }]);
 

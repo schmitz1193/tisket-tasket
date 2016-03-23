@@ -15,11 +15,28 @@ app.controller("RegisterCtrl", [
       $http.post('/register', {email: $scope.email,
                                password: $scope.password,
                                firstName: $scope.firstName,
-                               lastName: $scope.lastName
-                              }).success((response) => {
-        console.log("Added new user ", response);
-        $location.path('/shop');
-        });
-      }
+                               lastName: $scope.lastName,
+                               admin: false,
+                               verify: $scope.verify})
+                              .success((response) => {
+        console.log("response ", response.message);
+         if (response.message === '1') {
+           console.log("this email exists");
+           $location.path('/login');
+         }
+         if (response.message === '2') {
+           console.log("created user");
+           $location.path('/shop');
+         }
+         if (response.message === '3') {
+           console.log("passwords do not match");
+           $location.path('/register');
+         }
+         if (response.message > '3') {
+           console.log("where did we go?");
+           $location.path('/login');
+         }
+      });
     }
+  }
 ]);

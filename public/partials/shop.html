@@ -1,21 +1,41 @@
-  <h1>TASKET/BASKET</h1>
-    <div class="row">
-      <h2>Select your shop.  Click on <i class="fa fa-shopping-basket"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o"></i></h2>
-      <div ng-repeat="shop in shops | orderBy:'-baskets'" class="col-md-3 col-md-offset-1">
-        <a href="{{shop.link}}" target="_blank">
-          {{shop.company}}
-        </a>
-        <img src="{{shop.image}}" class="shop-image">
-        <span class="fa fa-shopping-basket btn" ng-click="addBaskets(shop)">
-        <!-- ng-click ="count = count +1" -->
-        </span>
-        {{shop.baskets}}
-        <a href="">
-        <span class="fa fa-comment-o btn" ng-click="seeComments(shop)">
-        </span></a>
-        {{shop.commentCount}}
-      </div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+              <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">TASKET BASKET</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active" ng-click="logout()"><a href="">Sign-out</a></li>
+            <li><a href="#/admin">ADMINSTRATOR?</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
     </div>
+  </nav>
+
+  <div class="row">
+    <h2>Select your shop.  Click on <i class="fa fa-shopping-basket"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o"></i></h2>
+    <div ng-repeat="shop in shops | orderBy:'-baskets'" class="col-md-3 col-md-offset-1">
+      <a href="{{shop.link}}" target="_blank">
+        {{shop.company}}
+      </a>
+      <img src="{{shop.image}}" class="shop-image">
+      <span class="fa fa-shopping-basket btn" ng-click="addBaskets(shop)">
+      <!-- ng-click ="count = count +1" -->
+      </span>
+      {{shop.baskets}}
+      <a href="">
+      <span class="fa fa-comment-o btn" ng-click="seeComments(shop)">
+      </span></a>
+      {{shop.commentCount}}
+    </div>
+  </div>
 
 
 

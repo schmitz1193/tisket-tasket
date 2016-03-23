@@ -12,18 +12,15 @@ const comment = require('../ctrls/comment');
 
 
 router.post('/login', passport.authenticate('local'), login.loginUser);
-// router.delete('/login', login.delete);
+router.delete('/login', login.logout);
 
 router.post('/register', register.new);
 router.post('/admin', admin.new);
 router.get('/shop', shop.shopping);
 router.put('/shop/:id', shop.baskets);
-router.put('/comment/:id', comment.save);
+router.post('/comment/:id', comment.save);
+router.delete('/comment/:id/:userId', comment.delete);
+
 
 module.exports = router;
 
-
-
-// company = Company.findById(req.params.id, function(err, company) {
-//     //////////
-// });

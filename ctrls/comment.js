@@ -9,9 +9,6 @@ const Shops = require("../models/shops");
 
 //update basket counts and favorite users
 module.exports.save = (req,res) => {
-  console.log("made it to comments!!! ");
-  console.log("params? ", req.params.id);
-  console.log("body? ", req.body);
   const query = {'_id': req.params.id};
   const comment = {userId: req.body.userId, firstName: req.body.author, text: req.body.text};
   const doc = {
@@ -26,5 +23,21 @@ module.exports.save = (req,res) => {
     res.json({shops: shop,
               user: req.user});
   });
+}
+
+module.exports.delete = (req,res) => {
+  console.log("params? ", req.params);
+  const query = {_id: req.params.id};
+  console.log("count? ", req.body);
+  Shops.update({_id: req.params.id},
+  { $pull: { comments: { userId: req.params.userId } } },
+  { safe: true},
+    function(err,shop) {
+      if (err) throw err
+        console.log("I have deleted????");
+      res.json({shops: shop,
+                user: req.user });
+    }
+  )
 }
 

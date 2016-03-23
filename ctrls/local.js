@@ -17,17 +17,11 @@ passport.deserializeUser(function (id, done) {
 
 passport.use(new LocalStrategy({
   usernameField: 'email'
-  // passwordField: 'password'
   },
   (email, password, done) => {
-    console.log("I made it to new local strategy");
-    console.log("email ", email);
-    console.log("password ", password);
     User.findOne({ email: email }, (err, user) =>{
       if(err) throw err;
       if (user) {
-        console.log("autheticating user to password");
-        console.log("password?? ", password);
         user.authenticate(password, (err, valid) => {
           if (err) {
             console.log("error with password!");

@@ -52,7 +52,7 @@ app.controller("ShopCtrl", [
         shop.basketVote.push({userId: $scope.user._id});
         console.log("new basketVote ", shop.basketVote);
         $http.put('/shop/'+ shop._id, {baskets: shop.baskets, userId: $scope.user._id}).success((response) => {
-          console.log("will I ever make it here?");
+          console.log("need message to say you liked or have already liked");
         });
       }
   }
@@ -65,4 +65,21 @@ app.controller("ShopCtrl", [
     $location.path('/comment');
 
   }
+
+  $scope.logout = function(){
+  // console.log("email ", $scope.email);
+  // console.log("password ", $scope.password);
+  console.log("I'm logging out ");
+  $http
+    .delete('/login')
+    .success((response) => {
+      console.log("have I logged out?");
+      $location.path('/login');
+    }, function(err) {
+      console.log('ERRR!')
+      $scope.errMessage = true;
+      $location.path('/login')
+    })
+  }
+
 }]);

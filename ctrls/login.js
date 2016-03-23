@@ -17,12 +17,12 @@ module.exports.loginUser = function(req, res) {
   res.sendStatus(200);
 }
 
+module.exports.logout = function(req, res) {
+  req.session.regenerate(function(err) {
+    if (err) throw err;
+    console.log('made it to session regenerate');
+    res.sendStatus(200);
+  });
+}
 
-// module.exports.delete = (req,res) => {
-//   req.session.regenerate(function(err) {
-//     if (err) throw err;
-
-//     res.redirect('/#/login');
-//   });
-// };
 

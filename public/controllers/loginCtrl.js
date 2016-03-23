@@ -22,7 +22,7 @@ app.controller("LoginCtrl", [
           $scope.errMessage = true;
           $location.path('/')
         })
+      }
 
     }
-  }
 ]);
