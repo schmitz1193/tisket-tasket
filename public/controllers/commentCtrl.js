@@ -8,15 +8,15 @@ app.controller("CommentCtrl", [
     _ = window._;
 
     const shop = basketWorks.getShop();
-    const userId = basketWorks.getUser();
-    const name = basketWorks.getAuthor();
+    const user = basketWorks.getUser();
+    // const name = basketWorks.getAuthor();
 
     console.log("shop from factory ", shop);
-    console.log("user from factory ", userId);
+    console.log("user from factory ", user);
 
     $scope.shop = shop;
-    $scope.name = name;
-    $scope.userId = userId;
+    // $scope.name = name;
+    $scope.user = user;
 
     //need to to ng-show for when there are no comments
 
@@ -25,7 +25,7 @@ app.controller("CommentCtrl", [
     if (shop.commentCount = 0)
       $scope.otherComments = false;
 
-    const match = _.find(shop.comments, {'userId': userId});
+    const match = _.find(shop.comments, {'userId': user._id});
       if(match) {
         $scope.userComment = true;
         console.log("match? ", match);
@@ -34,7 +34,7 @@ app.controller("CommentCtrl", [
 //user has a comment so if commentcount is 1 then the switch to show other comments needs to be turned off
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         const remainingComments = _.filter(shop.comments, (comment) => {
-          return comment.userId !== userId
+          return comment.userId !== user._id
         });
         console.log("remaining ", remainingComments);
         if  (remainingComments.length === 0) {
@@ -43,6 +43,7 @@ app.controller("CommentCtrl", [
           $scope.comments = remainingComments;
           }
       }
+      //this is where I am losing it!
       if(!match) {
         $scope.userComment = false;
         console.log("no match? ", match);
@@ -53,11 +54,14 @@ app.controller("CommentCtrl", [
       console.log("I'm adding a comment ", $scope.currentUserComment);
       shop.commentCount += 1;
       $http.post('/comment/'+ shop._id, {commentCount: shop.commentCount,
-                                        userId: userId,
+                                        userId: user._id,
                                         author: name,
                                         text: $scope.currentUserComment})
                                         .success((response) => {
                                         console.log("added a comment");
+                                        //has the logged in user
+                                        console.log("user ", response.user);
+                                        console.log("shop ", response.shop);
                                         });
       $scope.userComment = true;
 
@@ -71,14 +75,14 @@ app.controller("CommentCtrl", [
 
 
     $scope.deleteComment = function(){
-      console.log("delete userId ", userId);
+      console.log("delete userId ", user._id);
       console.log("I'm deleting ", $scope.currentUserComment);
       console.log("fjirst commentCount ", $scope.shop.commentCount);
 
-      const Count = $scope.shop.comment - 1;
-      console.log("commentCount ", shop.commentCount);
+      // const Count = $scope.shop.comment - 1;
+      const Count = 8;
 
-      $http.delete('/comment/'+ shop._id + '/' + userId, {commentCount: Count})
+      $http.delete('/comment/'+ shop._id + '/' + user._id + '/' + Count)
                                         .success((response) => {
                                         console.log("deleted a comment");
                                         });

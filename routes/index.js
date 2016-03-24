@@ -19,7 +19,7 @@ router.post('/admin', admin.new);
 router.get('/shop', shop.shopping);
 router.put('/shop/:id', shop.baskets);
 router.post('/comment/:id', comment.save);
-router.delete('/comment/:id/:userId', comment.delete);
+router.delete('/comment/:id/:userId/:Count', comment.delete);
 
 
 module.exports = router;

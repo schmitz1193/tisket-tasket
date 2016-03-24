@@ -27,17 +27,21 @@ module.exports.save = (req,res) => {
 
 module.exports.delete = (req,res) => {
   console.log("params? ", req.params);
+
   const query = {_id: req.params.id};
-  console.log("count? ", req.body);
-  Shops.update({_id: req.params.id},
-  { $pull: { comments: { userId: req.params.userId } } },
-  { safe: true},
-    function(err,shop) {
-      if (err) throw err
-        console.log("I have deleted????");
-      res.json({shops: shop,
-                user: req.user });
-    }
-  )
+  // doc = {$set: {commentCount: req.body.commentCount},
+  //        $pull: { comments: { userId: req.params.userId } } } ;
+  // Shops.findOneAndUpdate(query, doc, options,
+
+//   Shops.update({_id: req.params.id},
+//   { $pull: { comments: { userId: req.params.userId } } },
+//   { safe: true},
+//      function(err,shop) {
+//       if (err) throw err
+//         console.log("I have deleted????");
+//       res.json({shops: shop,
+//                 user: req.user });
+//     }
+//   )
 }
 

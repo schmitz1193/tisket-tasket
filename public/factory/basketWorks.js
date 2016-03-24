@@ -3,6 +3,9 @@ app.factory('basketWorks', [function(){
   const currentShop = {
     shops: []
   };
+  const currentUser  = {
+    user: []
+  };
 
   // const currentUser = '';
 
@@ -15,19 +18,19 @@ app.factory('basketWorks', [function(){
     getShop: function() {
       return currentShop.shops;
     },
-    setUser: function(loggedInId) {
-      currentId = loggedInId;
-      console.log("factory user ", currentId);
+    setUser: function(loggedInUser) {
+      currentUser.user = loggedInUser;
+      console.log("factory user ", currentUser.user);
     },
     getUser: function() {
-      return currentId;
-    },
-    setAuthor: function(loggedInName) {
-      currentName = loggedInName;
-      console.log("factory user ", currentName);
-    },
-    getAuthor: function() {
-      return currentName;
+      return currentUser.user;
+    // },
+    // setAuthor: function(loggedInName) {
+    //   currentName = loggedInName;
+    //   console.log("factory user ", currentName);
+    // },
+    // getAuthor: function() {
+    //   return currentName;
     }
   }
 }]);
