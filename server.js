@@ -22,14 +22,14 @@ const MONGODB_USER = process.env.MONGODB_USER || '';
 const MONGODB_PASS = process.env.MONGODB_PASS || '';
 const MONGODB_NAME = process.env.MONGODB_NAME || `tasketbasket`;
 
-// const MONGODB_AUTH = MONGODB_USER
-//   ? `${MONGODB_USER}:${MONGODB_PASS}@`
-//   : '';
-// const MONGODB_URL = `mongodb://${MONGODB_AUTH}${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_NAME}`;
+const MONGODB_AUTH = MONGODB_USER
+  ? `${MONGODB_USER}:${MONGODB_PASS}@`
+  : '';
+const MONGODB_URL = `mongodb://${MONGODB_AUTH}${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_NAME}`;
 
 /////////////////////////end url
 //set url to mongodb--prior to heroku full deply
-const MONGODB_URL = "mongodb://localhost:27017/tasketbasket";
+// const MONGODB_URL = "mongodb://localhost:27017/tasketbasket";
 console.log('URL', MONGODB_URL);
 
 
