@@ -9,7 +9,7 @@ app.controller("ShopCtrl", [
     _ = window._;
 
   $http.get('/shop').then((response) => {
-    // console.log("response in shopctrl ", response.data.shops);
+    console.log("response in shopctrl ", response.data, response);
     $scope.shops = response.data.shops;
     $scope.user = response.data.user;
     console.log("scope user ", $scope.user);
