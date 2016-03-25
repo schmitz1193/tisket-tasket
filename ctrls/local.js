@@ -7,7 +7,7 @@ const User = require('../models/users');
 
 passport.serializeUser(function (user, done) {
   // console.log("am I serialized?");
-  done(null, user);
+  done(null, user._id);
 });
 
 passport.deserializeUser(function (id, done) {
@@ -24,11 +24,11 @@ passport.use(new LocalStrategy({
       if (user) {
         user.authenticate(password, (err, valid) => {
           if (err) {
-            console.log("error with password!");
+            console.log("error witin passport!");
             throw err;
           }
           if (valid) {
-            console.log("VALID");
+            console.log('----user-->', user)
             return done(null, user);
           } else {
             done();

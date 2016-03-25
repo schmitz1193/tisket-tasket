@@ -8,10 +8,10 @@ app.controller("ShopCtrl", [
     //   //how to pass this as dependency in app.js
     _ = window._;
 
-  $http.get('/shop').then((response) => {
-    console.log("response in shopctrl ", response.data, response);
-    $scope.shops = response.data.shops;
-    $scope.user = response.data.user;
+  $http.get('/shop').then((req, res) => {
+    console.log("response in shopctrl ", req.data, req);
+    $scope.shops = req.data.shops;
+    $scope.user = req.data.user;
     console.log("scope user ", $scope.user);
   });
 
