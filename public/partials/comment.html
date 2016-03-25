@@ -23,16 +23,19 @@
       <div ng-show='userComment'>
         <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{shop.company}}</h2>
         <span>
-          <h2>Hello {{name}}!  This is what you said!</h2>
-          <div contentEditable="true" ng-model="udateComment" title="Click to edit">
-            <h3>{{currentUserComment}}</h3>
+          <h2>Hello {{user.firstName}}!  This is what you said!</h2>
+          <div contentEditable="true" ng-model="currentUserComment" title="Click to edit">
+
+          <!-- <div ng-model="currentUserComment" title="Click to edit"> -->
+          <!-- style='border'; 1px solid lightgrey -->
+            <h2>{{currentUserComment}}</h2>
           </div>
           <button class="btn btn-danger"
                   ng-click="deleteComment()">
                   Delete
           </button>
           <button class="btn btn-primary"
-                  ng-click="updateComment()">
+                  ng-click="updateComment(currentUserComment)">
                   Update
           </button>
           <button class="btn btn-danger"
@@ -65,7 +68,7 @@
       </thead>
       <tbody>
         <tr ng-repeat='comment in comments'>
-          <td>{{comment.author}}</td>
+          <td>{{comment.firstName}}</td>
           <td>{{comment.text}}</td>
         </tr>
       </tbody>

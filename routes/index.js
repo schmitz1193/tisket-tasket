@@ -15,11 +15,15 @@ router.post('/login', passport.authenticate('local'), login.loginUser);
 router.delete('/login', login.logout);
 
 router.post('/register', register.new);
+
 router.post('/admin', admin.new);
+
 router.get('/shop', shop.shopping);
 router.put('/shop/:id', shop.baskets);
+
 router.post('/comment/:id', comment.save);
-router.delete('/comment/:id/:userId/:Count', comment.delete);
+router.put('/comment/:id', comment.update);
+router.delete('/comment/:id/:userId', comment.delete);
 
 
 module.exports = router;

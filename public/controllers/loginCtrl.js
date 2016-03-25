@@ -11,7 +11,7 @@ app.controller("LoginCtrl", [
     $scope.login = function(){
       $http
         .post('/login', {email: $scope.email, password: $scope.password})
-        .success((response) => {
+        .then((response) => {
           $location.path('/shop');
         }, function(err) {
           console.log('ERRR!')

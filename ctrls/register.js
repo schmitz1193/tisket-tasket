@@ -21,27 +21,23 @@ const User = require("../models/users");
 //   });
 // }
 
-// router.get('/register', (req, res) => {
-//   res.render('register');
-// });
-
 module.exports.new = (req, res) => {
   if (req.body.password === req.body.verify) {
     User.findOne({email: req.body.email}, (err, user) => {
       if (err) throw err;
 
       if (user) {
-        res.send('register', {message: '1'});
+        res.status(200).send({message: '1'});
       } else {
         User.create(req.body, (err) => {
           if (err) throw err;
 
-          res.send('register', {message: "2"});
+          res.status(200).send({message: "2"});
         });
       }
     });
   } else {
-    res.send('register', {
+    res.status(200).send('register', {
       email: req.body.email,
       message: '3'});
   }

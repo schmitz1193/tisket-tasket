@@ -9,19 +9,20 @@ app.controller("AdminCtrl", [
 
      $scope.addWebsite = function() {
       $http.post('/admin', {company: $scope.company, link: $scope.link, image: $scope.image})
-      .success((response) => {
+      .then((response) => {
         console.log("show me the new company! ", response);
         $location.path('/shop');
-      });
+      }, function(err) {
+        console.log('ERRR while adding a website!')
+        // $scope.errMessage = true;
+        // $location.path('/')
+      })
     }
 
     $scope.logout = function(){
-    // console.log("email ", $scope.email);
-    // console.log("password ", $scope.password);
-    console.log("I'm logging out ");
     $http
       .delete('/login')
-      .success((response) => {
+      .then((response) => {
         console.log("have I logged out?");
         $location.path('/login');
       }, function(err) {

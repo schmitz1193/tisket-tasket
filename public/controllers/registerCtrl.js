@@ -18,7 +18,7 @@ app.controller("RegisterCtrl", [
                                lastName: $scope.lastName,
                                admin: false,
                                verify: $scope.verify})
-                              .success((response) => {
+                              .then((response) => {
         console.log("response ", response.message);
          if (response.message === '1') {
            console.log("this email exists");
@@ -26,7 +26,7 @@ app.controller("RegisterCtrl", [
          }
          if (response.message === '2') {
            console.log("created user");
-           $location.path('/shop');
+           $location.path('/login');
          }
          if (response.message === '3') {
            console.log("passwords do not match");
@@ -36,7 +36,11 @@ app.controller("RegisterCtrl", [
            console.log("where did we go?");
            $location.path('/login');
          }
-      });
+      }, function(err) {
+          console.log('ERRR!')
+          $scope.errMessage = true;
+          $location.path('/')
+        });
     }
   }
 ]);

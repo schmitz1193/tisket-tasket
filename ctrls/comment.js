@@ -12,7 +12,6 @@ module.exports.save = (req,res) => {
   const query = {'_id': req.params.id};
   const comment = {userId: req.body.userId, firstName: req.body.author, text: req.body.text};
   const doc = {
-            $set: {commentCount: req.body.commentCount},
             $push: {comments: comment}
                };
   const options = {new: true};
@@ -25,23 +24,31 @@ module.exports.save = (req,res) => {
   });
 }
 
+module.exports.update = (req,res) => {
+  console.log("text to update.. ", req.body.text);
+  // Shops.update({'comments._id': req.params.id},
+  // { $set: { 'comments.$.text': req.body.text} },
+  //    function(err,shop) {
+  //     if (err) throw err
+  //       console.log("updated?", shop);
+  //     res.json({shops: shop,
+  //               user: req.user });
+  //   }
+  // )
+}
+
 module.exports.delete = (req,res) => {
   console.log("params? ", req.params);
 
-  const query = {_id: req.params.id};
-  // doc = {$set: {commentCount: req.body.commentCount},
-  //        $pull: { comments: { userId: req.params.userId } } } ;
-  // Shops.findOneAndUpdate(query, doc, options,
-
-//   Shops.update({_id: req.params.id},
-//   { $pull: { comments: { userId: req.params.userId } } },
-//   { safe: true},
-//      function(err,shop) {
-//       if (err) throw err
-//         console.log("I have deleted????");
-//       res.json({shops: shop,
-//                 user: req.user });
-//     }
-//   )
+  // Shops.update({_id: req.params.id},
+  // { $pull: { comments: { userId: req.params.userId } } },
+  // { safe: true},
+  //    function(err,shop) {
+  //     if (err) throw err
+  //       console.log("I have deleted????");
+  //     res.json({shops: shop,
+  //               user: req.user });
+  //   }
+  // )
 }
 

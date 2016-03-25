@@ -9,30 +9,30 @@ app.controller("CommentCtrl", [
 
     const shop = basketWorks.getShop();
     const user = basketWorks.getUser();
-    // const name = basketWorks.getAuthor();
 
     console.log("shop from factory ", shop);
     console.log("user from factory ", user);
 
     $scope.shop = shop;
-    // $scope.name = name;
     $scope.user = user;
 
     //need to to ng-show for when there are no comments
+    console.log("LENGTH?? ", shop.comments.length);
 
-    if (shop.commentCount > 0)
+    if (shop.comments.length > 0)
       $scope.otherComments = true;
-    if (shop.commentCount = 0)
+    if (shop.comments.length === 0)
       $scope.otherComments = false;
 
+
+    //a match means the logged in user has left a comment
     const match = _.find(shop.comments, {'userId': user._id});
       if(match) {
         $scope.userComment = true;
         console.log("match? ", match);
+        //set up _id so you can find this comment if the user updates it
+        $scope.current_id = match._id;
         $scope.currentUserComment = match.text;
-///////////  NEED TO DO THIS
-//user has a comment so if commentcount is 1 then the switch to show other comments needs to be turned off
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
         const remainingComments = _.filter(shop.comments, (comment) => {
           return comment.userId !== user._id
         });
@@ -43,49 +43,59 @@ app.controller("CommentCtrl", [
           $scope.comments = remainingComments;
           }
       }
-      //this is where I am losing it!
+      //no match means the logged in user has not left a comment
       if(!match) {
         $scope.userComment = false;
-        console.log("no match? ", match);
+        console.log("no match");
         $scope.comments = shop.comments;
       };
 
     $scope.saveComment = function(){
       console.log("I'm adding a comment ", $scope.currentUserComment);
-      shop.commentCount += 1;
-      $http.post('/comment/'+ shop._id, {commentCount: shop.commentCount,
+      $http.post('/comment/'+ shop._id, {
                                         userId: user._id,
-                                        author: name,
+                                        author: user.firstName,
                                         text: $scope.currentUserComment})
-                                        .success((response) => {
+                                        .then((response) => {
                                         console.log("added a comment");
                                         //has the logged in user
                                         console.log("user ", response.user);
-                                        console.log("shop ", response.shop);
+                                        console.log("shop ", response.shops);
+                                        }, function(err) {
+                                          console.log('ERRRor while saving comment!')
                                         });
       $scope.userComment = true;
-
- //Need to add this code:?????????works???????
-//if user leaves a comment and submits it, got to db to update comment count and add their comment, then redisplay comment with edit  & delete button
      }
 
-    $scope.updateComment = function(){
+    $scope.updateComment = function(updatedComment){
       console.log("I'm updating ", $scope.currentUserComment);
+        // console.log("coment user _id ", $scope.current_id);
+      console.log("ng model? ", updatedComment);
+/////////Need to get updated data and not sure how!!!!!
+/////// ///////////////////////////////
+      $http.put('/comment/'+ $scope.current_id, {
+                                  text: "new message"})
+                                  .then((response) => {
+                                  console.log("UPDATED a comment");
+                                  }, function(err) {
+                                    console.log('ERRRor while updating comment!')
+                                  });
+        $scope.userComment = true;
     }
 
 
     $scope.deleteComment = function(){
       console.log("delete userId ", user._id);
       console.log("I'm deleting ", $scope.currentUserComment);
-      console.log("fjirst commentCount ", $scope.shop.commentCount);
-
-      // const Count = $scope.shop.comment - 1;
-      const Count = 8;
-
-      $http.delete('/comment/'+ shop._id + '/' + user._id + '/' + Count)
-                                        .success((response) => {
+      $http.delete('/comment/'+ shop._id + '/' + user._id)
+                                        .then((response) => {
                                         console.log("deleted a comment");
+                                        console.log("response.data.shops");
+                                        }, function(err) {
+                                          console.log('ERRRor while deleting comment!')
                                         });
+      $scope.currentUserComment='';
+      $scope.userComment = false;
     }
 
 
@@ -95,10 +105,9 @@ app.controller("CommentCtrl", [
     }
 
     $scope.logout = function(){
-    console.log("I'm logging out ");
     $http
       .delete('/login')
-      .success((response) => {
+      .then((response) => {
         console.log("have I logged out?");
         $location.path('/login');
       }, function(err) {

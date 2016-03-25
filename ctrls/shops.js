@@ -12,8 +12,6 @@ const Shops = require("../models/shops");
 module.exports.shopping = (req,res) => {
     Shops.find((err,allShopsObj) => {
     if (err) throw err;
-    // console.log("allShopsObj ", allShopsObj);
-    // console.log("users?? ", req.user);
     res.json({shops: allShopsObj,
               user: req.user});
   });
@@ -22,7 +20,6 @@ module.exports.shopping = (req,res) => {
 module.exports.baskets = (req,res) => {
   // console.log("made it to baskets!!! ");
   // console.log("params? ", req.params.id);
-  console.log("body? ", req.body);
   const query = {'_id': req.params.id};
   const basketVotes = {userId: req.body.userId};
   const doc = {

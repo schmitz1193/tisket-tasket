@@ -24,16 +24,14 @@
     <div ng-repeat="shop in shops | orderBy:'-baskets'" class="col-md-3 col-md-offset-1">
       <a href="{{shop.link}}" target="_blank">
         {{shop.company}}
+      <img ng-src="{{shop.image}}" class="shop-image">
       </a>
-      <img src="{{shop.image}}" class="shop-image">
       <span class="fa fa-shopping-basket btn" ng-click="addBaskets(shop)">
-      <!-- ng-click ="count = count +1" -->
       </span>
-      {{shop.baskets}}
-      <a href="">
+      {{shop.comments.basketVote}}
       <span class="fa fa-comment-o btn" ng-click="seeComments(shop)">
-      </span></a>
-      {{shop.commentCount}}
+      </span>
+      {{shop.comments.length}}
     </div>
   </div>
 
