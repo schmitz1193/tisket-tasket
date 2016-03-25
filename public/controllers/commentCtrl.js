@@ -26,7 +26,7 @@ app.controller("CommentCtrl", [
 
 
     //a match means the logged in user has left a comment
-    const match = _.find(shop.comments, {'userId': user._id});
+    const match = _.find(shop.comments, {userId: user._id});
       if(match) {
         $scope.userComment = true;
         console.log("match? ", match);

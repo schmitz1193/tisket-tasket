@@ -16,7 +16,7 @@ app.controller("ShopCtrl", [
 
   $scope.addBaskets = function(shop) {
     //if the user has not already basket-favored this store then they can click and basket count will increment
-    const match = _.find(shop.basketVote, {'userId': $scope.user._id});
+    const match = _.find(shop.basketVote, {userId: $scope.user._id});
       if (match) {
         console.log("match ", match);
         console.log("you have already favored this shop");
