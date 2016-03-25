@@ -13,7 +13,7 @@
           <ul class="nav navbar-nav">
             <li class="active" ng-click="logout()"><a href="">Sign-out</a></li>
             <li><a href="/#/shop">Shop</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="mailto:tasketbasket@gmail.com" target="_blank">Contact</a></li>
           </ul>
 
     </div>
@@ -28,7 +28,7 @@
 
           <!-- <div ng-model="currentUserComment" title="Click to edit"> -->
           <!-- style='border'; 1px solid lightgrey -->
-            <input class="form-control" type="text" ng-model="currentUserComment" value="{{currentUserComment}}">
+            <input class="form-control bg-success" type="text" ng-model="currentUserComment" value="{{currentUserComment}}">
           </div>
           <button class="btn btn-danger"
                   ng-click="deleteComment()">
@@ -38,11 +38,13 @@
                   ng-click="updateComment()">
                   Update
           </button>
-          <button class="btn btn-danger"
+
+          <a href="#/shop">Cancel to return to shops</a>
+ <!--          <button class="btn btn-danger"
                   ng-click="cancelComment()">
                   Cancel
           </button>
-        </span>
+  -->       </span>
       </div>
       <div ng-show="!userComment">
         <span>

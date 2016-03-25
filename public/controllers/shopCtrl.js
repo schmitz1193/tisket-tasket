@@ -9,10 +9,8 @@ app.controller("ShopCtrl", [
     _ = window._;
 
   $http.get('/shop').then((req, res) => {
-    console.log("response in shopctrl ", req.data, req);
     $scope.shops = req.data.shops;
     $scope.user = req.data.user;
-    console.log("scope user ", $scope.user);
   });
 
   $scope.addBaskets = function(shop) {
@@ -20,18 +18,16 @@ app.controller("ShopCtrl", [
     const match = _.find(shop.basketVote, {userId: $scope.user._id});
       if (match) {
         console.log("match ", match);
-        console.log("you have already favored this shop");
+        shop.basketMsg = "You have already liked this shop!";
       }
       if (!match) {
         console.log("no match? ", match);
-        console.log("Thanks for liking me!");
         shop.baskets += 1;
         //put count on scope so it reflects the count right away:
         shop.basketVote.push({userId: $scope.user._id});
-        console.log("new basketVote ", shop.basketVote);
         $http.put('/shop/'+ shop._id, {baskets: shop.baskets, userId: $scope.user._id})
         .then((response) => {
-          console.log("need message to say you liked or have already liked");
+          shop.basketMsg = "Thanks for liking me!";
         }, function(err) {
            console.log('ERRR while liking a shop!')
         });
@@ -50,7 +46,6 @@ app.controller("ShopCtrl", [
   $http
     .delete('/login')
     .then((response) => {
-      console.log("have I logged out?");
       $location.path('/login');
     }, function(err) {
       console.log('ERRR!')

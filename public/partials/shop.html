@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
     <div class="container">
               <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -11,27 +11,32 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active" ng-click="logout()"><a href="">Sign-out</a></li>
             <li><a href="#/admin">ADMINSTRATOR?</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+            <li><a href="mailto:tasketbasket@gmail.com" target="_blank">Contact</a></li>
+            <li class="active" ng-click="logout()"><a href="">Sign-out</a></li>
+        </ul>
 
     </div>
   </nav>
 
-  <div class="row">
-    <h2>Select your shop.  Click on <i class="fa fa-shopping-basket"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o"></i></h2>
-    <div ng-repeat="shop in shops | orderBy:'-baskets'" class="col-md-3 col-md-offset-1">
-      <a href="{{shop.link}}" target="_blank">
+  <div class="row title-style">
+    <h2>Select your shop.  Click on <i class="fa fa-shopping-basket basket-color"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o comment-color"></i></h2>
+    <div ng-repeat="shop in shops | orderBy:'-baskets'" class="col-md-3 col-md-offset-1 text-center shop-space">
+      <a href="{{shop.link}}" target="_blank" class='shop-title'>
         {{shop.company}}
-      <img ng-src="{{shop.image}}" class="shop-image">
+      <img ng-src="{{shop.image}}" class="shop-image img-rounded">
       </a>
-      <span class="fa fa-shopping-basket btn" ng-click="addBaskets(shop)">
+      <span class='basket-color'>
+        <span class="fa fa-shopping-basket btn" ng-click="addBaskets(shop)">
+        </span>
+        {{shop.baskets}}
       </span>
-      {{shop.comments.basketVote}}
-      <span class="fa fa-comment-o btn" ng-click="seeComments(shop)">
+      <span class='comment-color'>
+       <span class="fa fa-comment-o btn" ng-click="seeComments(shop)">
+       </span>
+       {{shop.comments.length}}
       </span>
-      {{shop.comments.length}}
+        <p>{{shop.basketMsg}}</p>
     </div>
   </div>
 

@@ -29,10 +29,6 @@ const MONGODB_AUTH = MONGODB_USER
 const MONGODB_URL = `mongodb://${MONGODB_AUTH}${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_NAME}`;
 
 /////////////////////////end url
-//set url to mongodb--prior to heroku full deply
-// const MONGODB_URL = "mongodb://localhost:27017/tasketbasket";
-console.log('URL', MONGODB_URL);
-
 
 //login authentication
 app.use(session({
@@ -41,10 +37,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use((req, res, next) => {
-//   res.locals.user = req.user;
-//   next();
-// });
 
 //urlencoded parse url
 app.use(bodyParser.urlencoded({ extended: false }));
