@@ -50,6 +50,17 @@
   </div>
 
   <button type="submit" id="btn-xl" class="btn btn-primary" ng-click="register()" ng-disabled="userForm.$invalid">Register</button>
+  <div ng-show='errMessage'>
+     <p>{{registerErr}}</p>
+  </div>
 
+  <a href="#/login">Return to Login</a>
+
+
+ <!--  <button class="btn btn-danger"
+          ng-click="#login">
+          Return to Login
+  </button>
+ -->
 
 </form>

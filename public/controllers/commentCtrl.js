@@ -70,11 +70,11 @@ app.controller("CommentCtrl", [
     $scope.updateComment = function(updatedComment){
       console.log("I'm updating ", $scope.currentUserComment);
         // console.log("coment user _id ", $scope.current_id);
-      console.log("ng model? ", updatedComment);
+      // console.log("ng model? ", updatedComment);
 /////////Need to get updated data and not sure how!!!!!
 /////// ///////////////////////////////
       $http.put('/comment/'+ $scope.current_id, {
-                                  text: "new message"})
+                                  text: $scope.currentUserComment})
                                   .then((response) => {
                                   console.log("UPDATED a comment");
                                   }, function(err) {

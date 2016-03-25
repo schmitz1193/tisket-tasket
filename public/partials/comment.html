@@ -24,18 +24,18 @@
         <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{shop.company}}</h2>
         <span>
           <h2>Hello {{user.firstName}}!  This is what you said!</h2>
-          <div contentEditable="true" ng-model="currentUserComment" title="Click to edit">
+          <div>
 
           <!-- <div ng-model="currentUserComment" title="Click to edit"> -->
           <!-- style='border'; 1px solid lightgrey -->
-            <h2>{{currentUserComment}}</h2>
+            <input class="form-control" type="text" ng-model="currentUserComment" value="{{currentUserComment}}">
           </div>
           <button class="btn btn-danger"
                   ng-click="deleteComment()">
                   Delete
           </button>
           <button class="btn btn-primary"
-                  ng-click="updateComment(currentUserComment)">
+                  ng-click="updateComment()">
                   Update
           </button>
           <button class="btn btn-danger"

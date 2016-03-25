@@ -1,4 +1,4 @@
-//ctrls/login.js
+//ctrls/register.js
 "use strict";
 
 const passport = require('passport');
@@ -6,20 +6,6 @@ const passport = require('passport');
 //dependencies
 const User = require("../models/users");
 
-// module.exports.new = (req,res) => {
-//   const userObj = new User({
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     email: req.body.email,
-//     password: req.body.password,
-//     admin: false
-//   });
-
-//   userObj.save((err, newObj) => {
-//     if (err) throw err;
-//     res.send('newOjb');
-//   });
-// }
 
 module.exports.new = (req, res) => {
   if (req.body.password === req.body.verify) {
@@ -27,19 +13,19 @@ module.exports.new = (req, res) => {
       if (err) throw err;
 
       if (user) {
-        res.status(200).send({message: '1'});
+        // console.log("email exists ", user);
+        res.sendStatus(409);
       } else {
         User.create(req.body, (err) => {
           if (err) throw err;
-
-          res.status(200).send({message: "2"});
+          console.log("created?");
+          res.sendStatus(200);
         });
       }
     });
   } else {
-    res.status(200).send('register', {
-      email: req.body.email,
-      message: '3'});
+    // console.log("req.body.email");   Password
+    res.sendStatus(400);
   }
 };
 

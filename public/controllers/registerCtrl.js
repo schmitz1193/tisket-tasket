@@ -1,4 +1,4 @@
-//This is the controller for the register/mission statement page
+//This is the controller for the register
 
 'use strict'
 app.controller("RegisterCtrl", [
@@ -19,27 +19,20 @@ app.controller("RegisterCtrl", [
                                admin: false,
                                verify: $scope.verify})
                               .then((response) => {
-        console.log("response ", response.message);
-         if (response.message === '1') {
-           console.log("this email exists");
+        console.log("response ", response);
            $location.path('/login');
-         }
-         if (response.message === '2') {
-           console.log("created user");
-           $location.path('/login');
-         }
-         if (response.message === '3') {
-           console.log("passwords do not match");
-           $location.path('/register');
-         }
-         if (response.message > '3') {
-           console.log("where did we go?");
-           $location.path('/login');
-         }
       }, function(err) {
-          console.log('ERRR!')
+          console.log('ERRR!', err)
           $scope.errMessage = true;
-          $location.path('/')
+          if (err.status === 409) {
+            $scope.registerErr = "Email already exists";
+          } else {
+            if (err.status === 400) {
+            $scope.registerErr = "Passwords do not match";
+            } else {
+              $scope.registerErr = "Error registering, please try again";
+              } }
+          $location.path('/register')
         });
     }
   }

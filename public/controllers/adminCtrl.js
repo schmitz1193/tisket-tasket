@@ -23,7 +23,6 @@ app.controller("AdminCtrl", [
     $http
       .delete('/login')
       .then((response) => {
-        console.log("have I logged out?");
         $location.path('/login');
       }, function(err) {
         console.log('ERRR!')
