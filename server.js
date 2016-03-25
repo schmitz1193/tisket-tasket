@@ -21,6 +21,7 @@ const MONGODB_PORT = process.env.MONGODB_PORT || 27017;
 const MONGODB_USER = process.env.MONGODB_USER || '';
 const MONGODB_PASS = process.env.MONGODB_PASS || '';
 const MONGODB_NAME = process.env.MONGODB_NAME || `tasketbasket`;
+const REDIS_URL = process.env.REDIS_URL || 'redis://localhost:6379'
 
 const MONGODB_AUTH = MONGODB_USER
   ? `${MONGODB_USER}:${MONGODB_PASS}@`
@@ -36,7 +37,7 @@ console.log('URL', MONGODB_URL);
 //login authentication
 app.use(session({
   secret: SESSION_SECRET,
-  store: new RedisStore()
+  store: new RedisStore({url: REDIS_URL})
 }));
 app.use(passport.initialize());
 app.use(passport.session());
