@@ -12,6 +12,7 @@ app.controller("ShopCtrl", [
     // console.log("response in shopctrl ", response.data.shops);
     $scope.shops = response.data.shops;
     $scope.user = response.data.user;
+    console.log("scope user ", $scope.user);
   });
 
   $scope.addBaskets = function(shop) {
