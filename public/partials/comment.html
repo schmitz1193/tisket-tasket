@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
     <div class="container">
               <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -11,15 +11,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active" ng-click="logout()"><a href="">Sign-out</a></li>
             <li><a href="/#/shop">Shop</a></li>
             <li><a href="mailto:tasketbasket@gmail.com" target="_blank">Contact</a></li>
+            <li class="active" ng-click="logout()"><a href="">Sign-out</a></li>
           </ul>
 
     </div>
   </nav>
   <h1>TASKET/BASKET</h1>
-    <div class="row">    <!-- <div class-'row'> -->
+    <div class="row title-style">    <!-- <div class-'row'> -->
       <div ng-show='userComment'>
         <h2>Here are our weaver's comments <i class="fa fa-comment-o"></i> on their shopping experience with {{shop.company}}</h2>
         <span>
@@ -40,11 +40,7 @@
           </button>
 
           <a href="#/shop">Cancel to return to shops</a>
- <!--          <button class="btn btn-danger"
-                  ng-click="cancelComment()">
-                  Cancel
-          </button>
-  -->       </span>
+       </span>
       </div>
       <div ng-show="!userComment">
         <span>

@@ -1,10 +1,22 @@
 .shop-image{
   max-width: 250px;
   height: 300px;
+  border:1px solid #021a40;
 }
 
 
-body { padding-top: 70px; }
+body {
+    padding-top: 70px;
+    font-family: 'Comfortaa', cursive;
+    background-image: url(../images/weaving-round.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+.mission-style {
+  font-family: 'Permanent Marker', cursive;
+}
 
 .navbar-custom {
     color: black;
@@ -12,8 +24,9 @@ body { padding-top: 70px; }
 }
 
 .shop-title{
-  font-family: "Arial Black", Gadget, sans-serif;
-  font-size: 150%;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 400;
+  font-size: 175%;
   color: skyblue;
 /*  text-align: center;
   margin: 20px;
@@ -32,8 +45,10 @@ body { padding-top: 70px; }
 
 .basket-color {
   color: green;
+  font-size: 125%;
 }
 
 .comment-color {
   color: red;
+  font-size: 125%;
 }
