@@ -1,5 +1,7 @@
 # TASKET/BASKET
-A full mean stack app to bring together those practicing the craft of basket weaving!
+A full mean stack app to bring together those practicing the craft of basket weaving.
+
+To deploy:  https://tasketbasket.herokuapp.com/
 
 1. npm init
 1. npm install express --save
