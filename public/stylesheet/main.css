@@ -1,13 +1,9 @@
-.shop-image{
-  max-width: 250px;
-  height: 300px;
-  border:1px solid #021a40;
-}
 
 
 body {
     padding-top: 70px;
     font-family: 'Comfortaa', cursive;
+    color: darkblue;
     background-image: url(../images/weaving-round.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -19,15 +15,24 @@ body {
 }
 
 .navbar-custom {
-    color: black;
     background-color: skyblue;
+}
+
+/*.navbar-text {
+    color: darkblue;
+}
+*/
+.shop-image{
+  max-width: 250px;
+  height: 300px;
+  border:1px solid #021a40;
 }
 
 .shop-title{
   font-family: 'Comfortaa', cursive;
   font-weight: 400;
   font-size: 175%;
-  color: skyblue;
+  color: darkblue;
 /*  text-align: center;
   margin: 20px;
 */
@@ -39,8 +44,13 @@ body {
     margin-right: 10px;
 }
 
-.title-style, .basket-style, .comment-style {
-  color: skyblue;
+.title-style, .basket-style {
+  font-style: bold;
+}
+
+.comment-style {
+  font-size: 20px;
+  font-style: bold;
 }
 
 .basket-color {

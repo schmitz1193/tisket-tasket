@@ -25,9 +25,6 @@
         <span>
           <h2>Hello {{user.firstName}}!  This is what you said!</h2>
           <div>
-
-          <!-- <div ng-model="currentUserComment" title="Click to edit"> -->
-          <!-- style='border'; 1px solid lightgrey -->
             <input class="form-control bg-success" type="text" ng-model="currentUserComment" value="{{currentUserComment}}">
           </div>
           <button class="btn btn-danger"
@@ -65,7 +62,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat='comment in comments'>
+        <tr class='comment-style' ng-repeat='comment in comments'>
           <td>{{comment.firstName}}</td>
           <td>{{comment.text}}</td>
         </tr>
@@ -74,6 +71,6 @@
   </div>
 
   <div ng-show='!otherComments'>
-    <h2>Be the first to leave a comment for this shop!</h2>
+    <h2>No other comments have been left for this shop!</h2>
   </div>
 

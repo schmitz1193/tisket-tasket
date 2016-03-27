@@ -6,7 +6,7 @@ app.controller("LoginCtrl", [
 
   function($scope, $http, $location){
 
-    $scope.errMessage = false;
+    // $scope.errMessage = false;
 
     $scope.login = function(){
       $http
@@ -14,9 +14,10 @@ app.controller("LoginCtrl", [
         .then((response) => {
           $location.path('/shop');
         }, function(err) {
-          console.log('ERRR!')
+          console.log('ERRR!');
           $scope.errMessage = true;
-          $location.path('/')
+          $scope.loginErr  = 'Login or password is invalid.  Please try again.';
+          $location.path('/login');
         })
       }
 
