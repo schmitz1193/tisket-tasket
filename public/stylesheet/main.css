@@ -23,6 +23,7 @@ body {
 .navbar-default .navbar-brand {
     color: darkblue;
 }
+
 #navbar a {
     color: darkblue ;
 }
@@ -41,13 +42,20 @@ body {
 }
 
 .shop-space{
-    margin-top: 50px;
-    margin-bottom: 20px,
+    margin-top: 100px;
+    margin-bottom: 50px,
     margin-right: 10px;
+    float: left;
 }
 
-.title-style, .basket-style {
+.basket-style {
   font-weight: 700;
+}
+
+.title-style {
+  font-weight 700,
+  padding-bottom: 50,
+  margin-top: 100;
 }
 
 .comment-style {
