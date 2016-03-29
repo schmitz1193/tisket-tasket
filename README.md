@@ -4,6 +4,7 @@ A full mean stack app to bring together those practicing the craft of basket wea
 To deploy:  https://tasketbasket.herokuapp.com/
 
 Technologes used:
+
 1. AngularJS
 1. Bootstrap
 1. lodash
