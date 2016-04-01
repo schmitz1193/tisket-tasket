@@ -11,11 +11,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#/admin">ADMINSTRATOR?</a></li>
+            <li ng-click="admin()"><a href="">ADMINISTRATOR?</a></li>
+            <!-- <li><a href="#/admin">ADMINSTRATOR?</a></li> -->
             <li><a href="mailto:tasketbasket@gmail.com" target="_blank">Contact</a></li>
             <li class="active" ng-click="logout()"><a href="">Sign-out</a></li>
         </ul>
-
+      </div>
+      <div>{{notAdminMsg}}</div>
     </div>
   </nav>
 
@@ -23,7 +25,7 @@
     <h2>Select your shop.  Click on <i class="fa fa-shopping-basket basket-color"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o comment-color"></i></h2>
     <div ng-repeat="shop in shops | orderBy:'-baskets'">
     <!-- class="col-md-3 col-md-offset-1 text-center shop-space" -->
-      <div ng-class='{'clearfix': $index%3===0}'></div>
+      <div ng-class="{'clearfix': $index%3===0}"></div>
       <div class='col-md-4 shop-space'>
       <a href="{{shop.link}}" target="_blank" class='shop-title'>
         {{shop.company}}

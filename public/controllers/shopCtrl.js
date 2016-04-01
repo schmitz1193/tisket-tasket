@@ -41,6 +41,13 @@ app.controller("ShopCtrl", [
 
   }
 
+  $scope.admin = function() {
+    console.log("admin? ", $scope.user.admin);
+    if ($scope.user.admin === false) {
+      $scope.notAdminMsg = "You must be a Tasket/Basket Administrator to view this page";
+    } else { $location.path('/admin')};
+  }
+
   $scope.logout = function(){
   console.log("I'm logging out ");
   $http
