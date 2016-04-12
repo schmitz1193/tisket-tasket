@@ -17,3 +17,23 @@ Technologes used:
 1. Redis
 1. Heroku
 
+## Installation
+To install npm from your terminal:
+
+`curl https://npmjs.org/install.sh|sh`
+
+In your browser, navigate to the <a href="https://github.com/schmitz1193/tisket-tasket">repo</a>
+
+In the top-right corner of the page, click Fork.
+
+In your designated code directory, type:
+
+```
+git clone https://github.com/Your-Username/tisket-tasket
+cd tisket-tasket/
+npm install
+bower install
+hs
+```
+## License
+MIT
