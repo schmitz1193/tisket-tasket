@@ -29,7 +29,16 @@ git clone https://github.com/Your-Username/tisket-tasket
 cd tisket-tasket/
 npm install
 bower install
-hs
 ```
+Open a new terminal for each of the following commands:
+
+```
+redis-server
+
+mongod
+
+nodemon server.js
+```
+
 ## License
 MIT
