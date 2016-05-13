@@ -23,10 +23,12 @@
 
   <div class="row col-md-12 text-center title-style">
     <h2>Select your shop.  Click on <i class="fa fa-shopping-basket basket-color"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o comment-color"></i></h2>
-    <div ng-repeat="shop in shops | orderBy:'-baskets'">
+  </div>
+  <div ng-repeat="shop in shops | orderBy:'-baskets'">
     <!-- class="col-md-3 col-md-offset-1 text-center shop-space" -->
-      <div ng-class="{'clearfix': $index%3===0}"></div>
-      <div class='col-md-4 shop-space'>
+      <!-- <div ng-class="{'clearfix': $index%3===0}"></div> -->
+      <div class='col-md-4 shop-space image-holder'>
+      <div class="thumbnail">
       <a href="{{shop.link}}" target="_blank" class='shop-title'>
         {{shop.company}}
       <img ng-src="{{shop.image}}" class="shop-image img-rounded">

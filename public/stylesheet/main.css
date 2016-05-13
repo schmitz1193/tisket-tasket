@@ -28,9 +28,26 @@ body {
     color: darkblue ;
 }
 
-.shop-image{
+.thumbnail {
+    width: 350px; // or you could use percentage value for responsive layout
+    height: 300px;
+    background-color: skyblue;
+    /*overflow: auto;*/
+}
+
+.image-holder { height: 350px;
+}
+
+/*.thumbnail img {
+    width:250px;
+    height:200px;
+}
+
+*/
+
+.shop-image img{
   max-width: 300px;
-  height: 250px;
+  height: auto;
   border:1px solid #021a40;
 }
 
@@ -41,22 +58,22 @@ body {
   color: darkblue;
 }
 
-.shop-space{
+/*.shop-space{
     margin-top: 100px;
-    margin-bottom: 50px,
+    margin-bottom: 50px;
     margin-right: 10px;
     float: left;
 }
-
+*/
 .basket-style {
   font-weight: 700;
 }
 
 .title-style {
-  font-weight 700,
-  padding-bottom: 50,
+  font-weight: 1000;
+  padding-bottom: 50;
   margin-top: 100;
-}
+ }
 
 .comment-style {
   font-size: 20px;
