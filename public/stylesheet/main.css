@@ -16,6 +16,18 @@ body {
   text-align: center;
 }
 
+form .form-control::-moz-placeholder {
+  color: darkblue;
+  opacity: 1;
+}
+form .form-control:-ms-input-placeholder {
+  color: darkblue;
+}
+form .form-control::-webkit-input-placeholder {
+  color: darkblue;
+}
+
+
 .base-slide {
     background-color: steelblue;
     width: 30%;
