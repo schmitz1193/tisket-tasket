@@ -16,6 +16,11 @@ body {
   text-align: center;
 }
 
+.base-slide {
+    background-color: steelblue;
+    width: 30%;
+}
+
 .navbar-custom {
     background-color: skyblue;
 }
@@ -71,8 +76,8 @@ body {
 
 .title-style {
   font-weight: 1000;
-  padding-bottom: 50;
-  margin-top: 25;
+  padding-bottom: 25;
+  margin-top: 10;
  }
 
 .comment-style {
