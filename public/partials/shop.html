@@ -24,10 +24,26 @@
   <div class="row col-md-12 text-center title-style">
     <h2>Select your shop.  Click on <i class="fa fa-shopping-basket basket-color"></i> to favorite your shop.  Leave a comment!<i class="fa fa-comment-o comment-color"></i></h2>
   </div>
+
+
+  <div class="carousel" id="slider" style="margin-left: 20px;">
+
+    <label class="labelSecurity">Incident Photos</label><br />
+
+    <div class="carousel-inner">
+        <div class="item" ng-class="{active:!$index}" ng-repeat="shop in shops | orderBy:'-baskets'">
+            <img src="{{ shop.image }}" class="img-responsive">
+        </div>
+    </div>
+
+    <a class="carousel-control right" href="#slider" data-slide="next"></a>
+
+</div>
+
+
+ <!--  <div class='row shop-back'>
   <div ng-repeat="shop in shops | orderBy:'-baskets'">
-    <!-- class="col-md-3 col-md-offset-1 text-center shop-space" -->
-      <!-- <div ng-class="{'clearfix': $index%3===0}"></div> -->
-      <div class='col-md-4 shop-space image-holder'>
+     <div class='col-md-4 shop-space image-holder'>
       <div class="thumbnail">
       <a href="{{shop.link}}" target="_blank" class='shop-title'>
         {{shop.company}}
@@ -39,15 +55,16 @@
         {{shop.baskets}}
       </span>
       <span class='comment-color'>
-       <span class="fa fa-comment-o btn" ng-click="seeComments(shop)">
-       </span>
+       <div class="fa fa-comment-o btn" ng-click="seeComments(shop)">
+       </div>
        {{shop.comments.length}}
       </span>
         <p>{{shop.basketMsg}}</p>
     </div>
     </div>
+    </div>
   </div>
 
 
-
+ -->
 

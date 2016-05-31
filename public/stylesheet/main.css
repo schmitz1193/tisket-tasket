@@ -35,6 +35,8 @@ form .form-control::-webkit-input-placeholder {
 
 .navbar-custom {
     background-color: skyblue;
+    opacity: 0.8;
+    margin-top: 30px;
 }
 
 .navbar-default .navbar-brand {
@@ -45,14 +47,21 @@ form .form-control::-webkit-input-placeholder {
     color: darkblue ;
 }
 
+.shop-back {
+  margin-right: 30px;
+  margin-top: 100px;
+}
+
 .thumbnail {
-    width: 350px; // or you could use percentage value for responsive layout
-    height: 300px;
+    width: 75%  ; // or you could use percentage value for responsive layout
+    height: 50%;
     background-color: skyblue;
+    text-align: center;
     /*overflow: auto;*/
 }
 
-.image-holder { height: 350px;
+.image-holder {
+  height: 50%;
 }
 
 /*.thumbnail img {
@@ -62,15 +71,24 @@ form .form-control::-webkit-input-placeholder {
 
 */
 
-.shop-image img{
-  max-width: 300px;
+/*.shop-image img{
+  max-width: 200px;
   height: auto;
   border:1px solid #021a40;
 }
+*/
+.shop-image {
+  object-fit: contain; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: auto;
+  max-width: 200px;
+  border:1px solid #021a40;
+}
+
 
 .shop-title{
   font-family: 'Comfortaa', cursive;
-  font-weight: 700;
+  font-weight: bolder;
   font-size: 175%;
   color: darkblue;
 }
@@ -89,6 +107,7 @@ form .form-control::-webkit-input-placeholder {
 .title-style {
   font-weight: 1000;
   padding-bottom: 25;
+  margin-bottom: 50;
   margin-top: 10;
  }
 
@@ -98,11 +117,13 @@ form .form-control::-webkit-input-placeholder {
 }
 
 .basket-color {
-  color: deeppink;
+  color: beige;
   font-size: 125%;
+  text-align: left;
 }
 
-.comment-color {
-  color: lime;
+.comment-color{
+  color: beige;
   font-size: 125%;
+  text-align: right;
 }
